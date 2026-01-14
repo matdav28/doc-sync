@@ -1,7 +1,7 @@
 import React from 'react';
 import Section from '@/components/Section';
 import { PROJECTS_DATA } from '@/data/constants';
-import { Lightbulb, Leaf, Map } from 'lucide-react';
+import { Lightbulb, Leaf, Map, ArrowRight } from 'lucide-react';
 
 const getProjectIcon = (id: string) => {
   switch (id) {
@@ -42,7 +42,12 @@ const ProgettiSection: React.FC = () => {
               {project.description}
             </p>
             
-            <div className="mt-8 w-12 h-1 bg-accent"></div>
+            <button className="mt-8 flex items-center gap-2 text-primary-foreground font-bold text-sm uppercase tracking-wider group-hover:text-accent transition-colors duration-300">
+              SCOPRI DI PIÙ
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
+            </button>
+            
+            <div className="mt-4 w-12 h-1 bg-accent"></div>
           </div>
         ))}
       </div>

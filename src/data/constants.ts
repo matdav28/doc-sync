@@ -10,6 +10,7 @@ export interface TimelineItem {
   year: string;
   title: string;
   description: string;
+  details: string;
 }
 
 export interface ProjectItem {
@@ -74,34 +75,40 @@ export const NEWS_DATA: NewsItem[] = [
 
 export const TIMELINE_DATA: TimelineItem[] = [
   {
-    year: '2019-2020',
+    year: "2019",
     title: "RAPPRESENTANTE D'ISTITUTO",
-    description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare."
+    description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare.",
+    details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare."
   },
   {
-    year: '2020-2021',
+    year: "2020",
     title: "PRESIDENTE CPS RAGUSA",
-    description: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica."
+    description: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica.",
+    details: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica."
   },
   {
-    year: '2021',
+    year: "2021",
     title: "MEMBRO ORGANO DI GARANZIA",
-    description: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia."
+    description: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia.",
+    details: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia."
   },
   {
-    year: 'Dal 2022',
+    year: "Dal 2022",
     title: "RAPPRESENTANTE UNIBO",
-    description: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole."
+    description: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole.",
+    details: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole."
   },
   {
-    year: '2022-2025',
+    year: "2022",
     title: "SEGRETARIO GD RAGUSA",
-    description: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani."
+    description: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani.",
+    details: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani."
   },
   {
-    year: '2025',
+    year: "2025",
     title: "SEGRETERIA REGIONALE GD",
-    description: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici."
+    description: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici.",
+    details: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici."
   }
 ];
 
