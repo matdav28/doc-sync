@@ -20,21 +20,28 @@ const TraguardiSection: React.FC = () => {
           <div 
             key={index} 
             onClick={() => setSelectedItem(item)}
-            className="p-6 md:p-8 flex flex-col bg-background rounded-2xl border-2 border-border/50 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300 min-h-[220px] cursor-pointer group"
+            className="p-6 md:p-8 flex flex-col bg-background rounded-2xl border-2 border-border/50 shadow-sm hover:shadow-lg hover:border-l-4 hover:border-accent transition-all duration-300 min-h-[260px] cursor-pointer group"
           >
             <span className="text-accent font-bold text-3xl md:text-4xl mb-3">
-              {item.year.split('-')[0]}
+              {item.year.replace('Dal ', '')}
             </span>
             <h3 className="text-primary font-bold text-base md:text-lg uppercase mb-2 leading-tight">
               {item.title}
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
               {item.description}
             </p>
-            <span className="text-primary font-semibold text-sm uppercase flex items-center gap-2 hover:text-accent transition-colors">
-              LEGGI TUTTO 
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
+            
+            <div className="flex items-center justify-between mt-auto">
+              <span className="text-primary font-semibold text-sm uppercase flex items-center gap-2 group-hover:text-accent transition-colors">
+                LEGGI TUTTO 
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+              
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
+                <ArrowRight className="w-5 h-5 text-primary-foreground" />
+              </div>
+            </div>
           </div>
         ))}
       </div>

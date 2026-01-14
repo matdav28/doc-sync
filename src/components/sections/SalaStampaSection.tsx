@@ -6,6 +6,8 @@ import { ChevronRight, ChevronDown } from 'lucide-react';
 const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => (
   <a 
     href={item.url} 
+    target="_blank"
+    rel="noopener noreferrer"
     className="flex flex-col md:flex-row py-8 border-b border-border group hover:bg-muted/50 transition-colors cursor-pointer items-start md:items-center justify-between gap-4 px-4 -mx-4"
   >
     <div className="w-full md:w-1/4">
@@ -18,7 +20,10 @@ const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => (
         {item.title}
       </h3>
     </div>
-    <div className="w-full md:w-1/4 flex justify-end">
+    <div className="w-full md:w-1/4 flex items-center justify-end gap-3">
+      <span className="text-muted-foreground text-xs uppercase tracking-wider group-hover:text-accent transition-colors hidden md:block">
+        LEGGI L'ARTICOLO
+      </span>
       <div className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
         <ChevronRight className="text-muted-foreground group-hover:text-accent-foreground transition-colors" />
       </div>
@@ -43,21 +48,33 @@ const SalaStampaSection: React.FC = () => {
           <NewsRow key={item.id} item={item} />
         ))}
         
-        {isExpanded && hiddenItems.map((item) => (
-          <NewsRow key={item.id} item={item} />
-        ))}
+        {/* Animated expandable section */}
+        <div 
+          className="grid transition-all duration-500 ease-in-out"
+          style={{
+            gridTemplateRows: isExpanded ? '1fr' : '0fr',
+          }}
+        >
+          <div className="overflow-hidden">
+            {hiddenItems.map((item) => (
+              <NewsRow key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
       
       {hiddenItems.length > 0 && (
         <div className="mt-8 flex justify-center">
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="group flex items-center gap-3 text-primary font-black uppercase tracking-wider hover:text-accent transition-colors"
+            className="group flex flex-col items-center gap-4 outline-none"
           >
-            <span>{isExpanded ? 'MOSTRA MENO' : 'MOSTRA TUTTO'}</span>
-            <div className="w-10 h-10 rounded-full border-2 border-primary group-hover:border-accent group-hover:bg-accent flex items-center justify-center transition-all duration-300">
+            <span className="text-primary font-black uppercase tracking-wider group-hover:text-accent transition-colors">
+              {isExpanded ? 'MOSTRA MENO' : 'MOSTRA TUTTO'}
+            </span>
+            <div className="w-14 h-14 rounded-full border-2 border-primary group-hover:border-accent group-hover:bg-accent flex items-center justify-center transition-all duration-300">
               <ChevronDown 
-                size={20} 
+                size={24} 
                 className={`text-primary group-hover:text-accent-foreground transition-all duration-500 ${isExpanded ? 'rotate-180' : 'rotate-0'} group-hover:scale-110`} 
               />
             </div>
