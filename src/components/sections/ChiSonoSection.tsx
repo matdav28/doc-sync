@@ -9,20 +9,20 @@ const ChiSonoSection: React.FC = () => {
         <div className="order-2 lg:order-1">
           <div className="mb-8">
             <span className="text-accent/20 font-black text-8xl leading-none block mb-[-40px] select-none">01</span>
-            <h3 className="text-primary font-black text-3xl md:text-4xl uppercase mb-6 relative">
+            <h3 className="text-primary font-black text-4xl md:text-5xl uppercase mb-6 relative">
               LE RADICI
             </h3>
           </div>
-          <div className="prose prose-lg text-muted-foreground leading-relaxed">
-            <p className="mb-6">
+          <div className="prose prose-xl text-muted-foreground leading-relaxed">
+            <p className="mb-6 text-lg md:text-xl">
               Mi chiamo Matteo Migliore. Sono nato a Pozzallo, in provincia di Ragusa, nel 2002. 
               Ho iniziato il mio percorso di impegno civico dalla scuola, come rappresentante d'istituto.
             </p>
-            <p className="mb-6">
+            <p className="mb-6 text-lg md:text-xl">
               Da lì è nato tutto: la voglia di migliorare le cose, di partecipare alle decisioni, 
               di essere parte attiva della comunità. Non come spettatore, ma come costruttore.
             </p>
-            <p>
+            <p className="text-lg md:text-xl">
               Oggi studio Giurisprudenza all'Università di Bologna e continuo il mio impegno 
               nella rappresentanza studentesca e nella politica giovanile.
             </p>
@@ -65,16 +65,16 @@ const ChiSonoSection: React.FC = () => {
         <div>
           <div className="mb-8">
             <span className="text-accent/20 font-black text-8xl leading-none block mb-[-40px] select-none">02</span>
-            <h3 className="text-primary font-black text-3xl md:text-4xl uppercase mb-6 relative">
+            <h3 className="text-primary font-black text-4xl md:text-5xl uppercase mb-6 relative">
               LA FORMAZIONE
             </h3>
           </div>
-          <div className="prose prose-lg text-muted-foreground leading-relaxed">
-            <p className="mb-6">
+          <div className="prose prose-xl text-muted-foreground leading-relaxed">
+            <p className="mb-6 text-lg md:text-xl">
               Ho frequentato il Liceo Scientifico "Giorgio La Pira" di Pozzallo, dove sono stato 
               eletto rappresentante d'istituto nell'anno scolastico 2019-2020.
             </p>
-            <p>
+            <p className="text-lg md:text-xl">
               Attualmente frequento la Facoltà di Giurisprudenza presso l'Alma Mater Studiorum - 
               Università di Bologna, dove sono rappresentante nel Dipartimento di Scienze Giuridiche.
             </p>
@@ -88,16 +88,16 @@ const ChiSonoSection: React.FC = () => {
         <div>
           <div className="mb-8">
             <span className="text-accent/20 font-black text-8xl leading-none block mb-[-40px] select-none">03</span>
-            <h3 className="text-primary font-black text-3xl md:text-4xl uppercase mb-6 relative">
+            <h3 className="text-primary font-black text-4xl md:text-5xl uppercase mb-6 relative">
               LA POLITICA REALE
             </h3>
           </div>
-          <div className="prose prose-lg text-muted-foreground leading-relaxed">
-            <p className="mb-6">
+          <div className="prose prose-xl text-muted-foreground leading-relaxed">
+            <p className="mb-6 text-lg md:text-xl">
               Nel 2022 ho scelto di entrare nei Giovani Democratici, il movimento giovanile del 
               Partito Democratico. Una scelta di campo, convinta e consapevole.
             </p>
-            <p>
+            <p className="text-lg md:text-xl">
               Sono stato Segretario dei GD Ragusa dal 2022 al 2025 e oggi ricopro il ruolo di 
               Tesoriere e Delegato al Tesseramento nella Segreteria Regionale GD Sicilia.
             </p>
