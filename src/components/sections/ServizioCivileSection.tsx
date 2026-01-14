@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from '@/components/Section';
-import { Heart, Users, HandHeart } from 'lucide-react';
+import { Heart, Leaf, Compass } from 'lucide-react';
 
 const ServizioCivileSection: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const ServizioCivileSection: React.FC = () => {
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-        {/* Card 1 */}
+        {/* Card 1 - Croce Rossa */}
         <div className="p-10 md:p-12 lg:p-16 bg-background flex flex-col items-start h-full group border border-border hover:border-accent transition-all">
           <div className="w-20 h-20 bg-accent/10 flex items-center justify-center mb-10 border-4 border-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
             <Heart size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
@@ -25,31 +25,31 @@ const ServizioCivileSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Card 2 */}
+        {/* Card 2 - Legambiente */}
         <div className="p-10 md:p-12 lg:p-16 bg-background flex flex-col items-start h-full group border border-border hover:border-accent transition-all">
           <div className="w-20 h-20 bg-accent/10 flex items-center justify-center mb-10 border-4 border-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
-            <Users size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
+            <Leaf size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
           </div>
           <h3 className="heading-transition text-3xl md:text-4xl mb-8 text-foreground group-hover:text-accent transition-colors">
-            COMUNITÀ
+            LEGAMBIENTE
           </h3>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            Il servizio civile è stata l'occasione per conoscere la mia comunità da un'altra prospettiva. 
-            Non da studente, ma da cittadino attivo che si mette a disposizione.
+            Una mano per l'ambiente. Circolo 'A Valata' di Pozzallo. Ambientalismo attivo e 
+            responsabilità quotidiana per la tutela del nostro territorio e delle nostre radici.
           </p>
         </div>
 
-        {/* Card 3 */}
+        {/* Card 3 - A.G.E.S.C.I. */}
         <div className="p-10 md:p-12 lg:p-16 bg-background flex flex-col items-start h-full group border border-border hover:border-accent transition-all">
           <div className="w-20 h-20 bg-accent/10 flex items-center justify-center mb-10 border-4 border-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
-            <HandHeart size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
+            <Compass size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
           </div>
           <h3 className="heading-transition text-3xl md:text-4xl mb-8 text-foreground group-hover:text-accent transition-colors">
-            VALORI
+            A.G.E.S.C.I.
           </h3>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            Umanità, imparzialità, neutralità, indipendenza, volontariato, unità, universalità. 
-            I sette principi della Croce Rossa che porto con me ogni giorno.
+            Educare, educarsi, servire. Dal Gruppo Pozzallo 1 al servizio educativo come capo 
+            nel Gruppo Ispica 2. Lo scoutismo come scuola di cittadinanza e di servizio al prossimo.
           </p>
         </div>
       </div>

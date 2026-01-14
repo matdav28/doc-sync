@@ -2,15 +2,25 @@ import React from 'react';
 import Section from '@/components/Section';
 import { TIMELINE_DATA } from '@/data/constants';
 import { ArrowRight } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 
 const TraguardiSection: React.FC = () => {
+  const [selectedItem, setSelectedItem] = React.useState<typeof TIMELINE_DATA[0] | null>(null);
+
   return (
     <Section id="traguardi" title="I TRAGUARDI" bgColor="bg-muted" className="pt-10 md:pt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {TIMELINE_DATA.map((item, index) => (
           <div 
             key={index} 
-            className="p-6 md:p-8 flex flex-col bg-background rounded-2xl border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300 min-h-[220px]"
+            onClick={() => setSelectedItem(item)}
+            className="p-6 md:p-8 flex flex-col bg-background rounded-2xl border-2 border-border/50 shadow-sm hover:shadow-md hover:border-accent transition-all duration-300 min-h-[220px] cursor-pointer group"
           >
             <span className="text-accent font-bold text-3xl md:text-4xl mb-3">
               {item.year.split('-')[0]}
@@ -21,12 +31,29 @@ const TraguardiSection: React.FC = () => {
             <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
               {item.description}
             </p>
-            <a href="#" className="text-primary font-semibold text-sm uppercase flex items-center gap-2 hover:text-accent transition-colors">
-              LEGGI TUTTO <ArrowRight className="w-4 h-4" />
-            </a>
+            <span className="text-primary font-semibold text-sm uppercase flex items-center gap-2 hover:text-accent transition-colors">
+              LEGGI TUTTO 
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </span>
           </div>
         ))}
       </div>
+
+      <Dialog open={!!selectedItem} onOpenChange={(open) => !open && setSelectedItem(null)}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <div className="text-accent font-bold text-2xl mb-2">
+              {selectedItem?.year}
+            </div>
+            <DialogTitle className="text-primary font-bold text-xl uppercase">
+              {selectedItem?.title}
+            </DialogTitle>
+          </DialogHeader>
+          <DialogDescription className="text-muted-foreground text-base leading-relaxed pt-4">
+            {selectedItem?.details}
+          </DialogDescription>
+        </DialogContent>
+      </Dialog>
     </Section>
   );
 };

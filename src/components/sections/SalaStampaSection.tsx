@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Section from '@/components/Section';
 import { NEWS_DATA } from '@/data/constants';
-import { ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 
 const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => (
   <a 
@@ -20,7 +20,7 @@ const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => (
     </div>
     <div className="w-full md:w-1/4 flex justify-end">
       <div className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
-        <ChevronRight className="text-muted-foreground group-hover:text-accent-foreground" />
+        <ChevronRight className="text-muted-foreground group-hover:text-accent-foreground transition-colors" />
       </div>
     </div>
   </a>
@@ -52,10 +52,15 @@ const SalaStampaSection: React.FC = () => {
         <div className="mt-8 flex justify-center">
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="flex items-center gap-2 text-primary font-black uppercase tracking-wider hover:text-accent transition-colors"
+            className="group flex items-center gap-3 text-primary font-black uppercase tracking-wider hover:text-accent transition-colors"
           >
             <span>{isExpanded ? 'MOSTRA MENO' : 'MOSTRA TUTTO'}</span>
-            {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            <div className="w-10 h-10 rounded-full border-2 border-primary group-hover:border-accent group-hover:bg-accent flex items-center justify-center transition-all duration-300">
+              <ChevronDown 
+                size={20} 
+                className={`text-primary group-hover:text-accent-foreground transition-all duration-500 ${isExpanded ? 'rotate-180' : 'rotate-0'} group-hover:scale-110`} 
+              />
+            </div>
           </button>
         </div>
       )}
