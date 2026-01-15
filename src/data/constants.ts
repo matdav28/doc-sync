@@ -12,12 +12,12 @@ export interface TimelineItem {
   details: string;
 }
 
-export interface ProjectItem {
-  id: string;
-  name: string;
-  year: string;
+export interface ProjectDetailItem {
+  title: string;
+  category: string;
   description: string;
-  icon?: string;
+  fullText: string;
+  gallery: string[];
 }
 
 export const NEWS_DATA: NewsItem[] = [
@@ -71,39 +71,57 @@ export const NEWS_DATA: NewsItem[] = [
   },
   { 
     id: 'news-9',
+    date: "11 MAR 2023", 
+    title: "MATTEO MIGLIORE PUBBLICA IL PRIMO LIBRO A SOLI VENT'ANNI", 
+    url: "#" 
+  },
+  { 
+    id: 'news-10',
     date: "26 FEB 2022", 
     title: "MATTEO MIGLIORE GUIDERA' I GIOVANI DEMOCRATICI IN PROVINCIA DI RAGUSA", 
     url: "https://www.ragusaoggi.it/matteo-migliore-guidera-i-giovani-democratici-in-provincia-di-ragusa/" 
   },
   { 
-    id: 'news-10',
+    id: 'news-11',
     date: "28 FEB 2022", 
     title: "ANCHE IN PROVINCIA DI RAGUSA NASCE IL GRUPPO DEI GIOVANI DEMOCRATICI", 
     url: "https://www.quotidianodiragusa.it/2022/02/28/politica/anche-in-provincia-di-ragusa-nasce-il-gruppo-dei-giovani-democratici/" 
   },
   { 
-    id: 'news-11',
+    id: 'news-12',
     date: "16 APR 2022", 
     title: "RAPPORTO TRA I GIOVANI E POLITICA: UN CONVEGNO A POZZALLO", 
     url: "https://www.ialmo.it/news/ialmo-news/rapporto-tra-giovani-e-politica-un-convegno-a-pozzallo/" 
   },
   { 
-    id: 'news-12',
+    id: 'news-13',
     date: "07 GIU 2022", 
     title: "RAGUSA: FASE CONCLUSIVA PROGETTO UNICEF 'SCUOLA AMICA'", 
     url: "https://www.unicef.it/comitati-locali/ragusa/a-scicli-la-cerimonia-istituzionale-con-le-scuole-amiche/" 
   },
   { 
-    id: 'news-13',
+    id: 'news-14',
+    date: "28 SET 2021", 
+    title: "L'ASP MONITORA L'INSORGERE DEI CONTAGI. MIGLIORE: \"SITUAZIONE PIU' SERENA\"", 
+    url: "#" 
+  },
+  { 
+    id: 'news-15',
     date: "06 GEN 2021", 
     title: "APERTURA SCUOLE, CONTRARIA LA CONSULTA PROVINCIALE", 
     url: "https://www.ragusaoggi.it/apertura-scuole-contraria-la-consulta-provinciale-studentesca-di-ragusa-ecco-perche/" 
   },
   { 
-    id: 'news-14',
+    id: 'news-16',
     date: "02 LUG 2021", 
     title: "IL GRUPPO DEI GIOVANI DEMOCRATICI SI COSTITUISCE IN PROVINCIA", 
     url: "https://ragusalibera.it/il-gruppo-dei-giovani-democratici-si-costituisce-anche-in-provincia-di-ragusa/" 
+  },
+  { 
+    id: 'news-17',
+    date: "17 NOV 2019", 
+    title: "RENZI CHIAMA ALLE ARMI IL SUO POPOLO. \"CAOS IMPREVEDIBILE\"", 
+    url: "#" 
   }
 ];
 
@@ -146,26 +164,50 @@ export const TIMELINE_DATA: TimelineItem[] = [
   }
 ];
 
-export const PROJECTS_DATA: ProjectItem[] = [
-  {
-    id: 'EURONESS',
-    name: 'EURONESS',
-    year: '',
-    description: "Risparmiare, trarre vantaggio, fare del bene. Trasformare il risparmio in solidarietà."
+export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
+  "euroness": {
+    title: "EURONESS",
+    category: "Progetto",
+    description: "Risparmiare, trarre vantaggio, fare del bene.",
+    fullText: "Un progetto nato per trasformare il risparmio in uno strumento di solidarietà. Attraverso Euroness, cerchiamo di creare un modello economico circolare che permetta ai cittadini di trarre vantaggi diretti dalle loro scelte di consumo, reinvestendo una parte del valore generato in progetti di utilità sociale per il territorio.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
-  {
-    id: 'GREENACTION',
-    name: 'GREENACTION',
-    year: '',
-    description: "Imparare a differenziare per imparare a scegliere. La raccolta differenziata come esercizio di cittadinanza."
+  "greenaction": {
+    title: "GREENACTION",
+    category: "Progetto",
+    description: "La raccolta differenziata come esercizio di cittadinanza.",
+    fullText: "Imparare a differenziare per imparare a scegliere. GreenAction non è solo una campagna ecologica, ma un percorso di educazione civica. Abbiamo coinvolto le scuole e i quartieri in attività pratiche per dimostrare che la cura dell'ambiente inizia dalle piccole scelte quotidiane.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
-  {
-    id: 'ENIGMA LAB',
-    name: 'ENIGMA LAB',
-    year: '',
-    description: "Gioco, città, collaborazione. Trasformare un gioco statico in un'esperienza urbana dinamica."
+  "enigma-lab": {
+    title: "ENIGMA LAB",
+    category: "Progetto",
+    description: "Gioco, città, collaborazione.",
+    fullText: "Trasformare un gioco statico in un'esperienza dinamica urbana. Enigma Lab ha portato i giovani a riscoprire i luoghi della città attraverso la gamification, risolvendo enigmi legati alla storia e alla cultura locale, favorendo la collaborazione e il senso di appartenenza.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  "croce-rossa": {
+    title: "CROCE ROSSA ITALIANA",
+    category: "Servizio Civile",
+    description: "Umanità, imparzialità, neutralità.",
+    fullText: "Il servizio civile è stata l'occasione per conoscere la mia comunità da un'altra prospettiva. Non da studente, ma da cittadino attivo che si mette a disposizione. In Croce Rossa ho imparato il valore del soccorso, dell'ascolto e della presenza silenziosa accanto a chi soffre.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  "legambiente": {
+    title: "LEGAMBIENTE",
+    category: "Servizio Civile",
+    description: "Circolo 'A Valata' di Pozzallo.",
+    fullText: "Una mano per l'ambiente. Con il circolo 'A Valata' di Pozzallo abbiamo promosso un ambientalismo attivo, fatto non solo di proteste ma di proposte e azioni concrete per la tutela del nostro territorio e delle nostre radici, difendendo la bellezza della nostra terra.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
+  },
+  "agesci": {
+    title: "A.G.E.S.C.I.",
+    category: "Servizio Civile",
+    description: "Educare, educarsi, servire.",
+    fullText: "Dal Gruppo Pozzallo 1 al servizio educativo come capo nel Gruppo Ispica 2. Lo scoutismo è stata la mia scuola di cittadinanza. 'Lasciare il mondo un po' migliore di come lo abbiamo trovato' non è solo uno slogan, è una bussola per l'impegno politico e sociale.",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   }
-];
+};
 
 export const NAV_ITEMS = [
   { label: 'HOME', href: '#home' },

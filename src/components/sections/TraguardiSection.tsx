@@ -20,26 +20,34 @@ const TraguardiSection: React.FC = () => {
           <div 
             key={index} 
             onClick={() => setSelectedItem(item)}
-            className="p-6 md:p-8 flex flex-col bg-background rounded-2xl border-2 border-border/50 shadow-sm hover:shadow-lg hover:border-l-4 hover:border-accent transition-all duration-300 min-h-[260px] cursor-pointer group"
+            className="relative p-6 md:p-8 flex flex-col bg-background rounded-2xl border-2 border-border/50 shadow-sm cursor-pointer group min-h-[280px]
+              hover:shadow-2xl hover:border-l-4 hover:border-accent hover:scale-[1.02] hover:-translate-y-1
+              transition-all duration-300 ease-out"
           >
-            <span className="text-accent font-bold text-3xl md:text-4xl mb-3">
-              {item.year.replace('Dal ', '')}
-            </span>
-            <h3 className="text-primary font-bold text-base md:text-lg uppercase mb-2 leading-tight">
-              {item.title}
-            </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
-              {item.description}
-            </p>
+            {/* Subtle background glow on hover */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             
-            <div className="flex items-center justify-between mt-auto">
-              <span className="text-primary font-semibold text-sm uppercase flex items-center gap-2 group-hover:text-accent transition-colors">
-                LEGGI TUTTO 
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="relative z-10 flex flex-col h-full">
+              <span className="text-accent font-bold text-3xl md:text-4xl mb-3">
+                {item.year.replace('Dal ', '')}
               </span>
+              <h3 className="text-primary font-bold text-base md:text-lg uppercase mb-2 leading-tight">
+                {item.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
+                {item.description}
+              </p>
               
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-                <ArrowRight className="w-5 h-5 text-primary-foreground" />
+              <div className="flex items-center justify-between mt-auto">
+                {/* Expanding Arrow Button */}
+                <div className="flex items-center gap-0 group/btn">
+                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
+                    <ArrowRight className="w-5 h-5 text-primary-foreground" />
+                  </div>
+                  <span className="text-primary font-semibold text-sm uppercase tracking-wider overflow-hidden max-w-0 group-hover:max-w-[120px] transition-all duration-300 ease-out whitespace-nowrap ml-0 group-hover:ml-3">
+                    LEGGI TUTTO
+                  </span>
+                </div>
               </div>
             </div>
           </div>

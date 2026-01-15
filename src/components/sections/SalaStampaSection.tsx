@@ -3,33 +3,56 @@ import Section from '@/components/Section';
 import { NEWS_DATA } from '@/data/constants';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 
-const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => (
-  <a 
-    href={item.url} 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex flex-col md:flex-row py-8 border-b border-border group hover:bg-muted/50 transition-colors cursor-pointer items-start md:items-center justify-between gap-4 px-4 -mx-4"
-  >
-    <div className="w-full md:w-1/4">
-      <span className="text-accent font-bold text-lg uppercase tracking-wider">
-        {item.date}
-      </span>
-    </div>
-    <div className="w-full md:w-2/4">
-      <h3 className="text-foreground font-black text-xl md:text-2xl uppercase leading-tight group-hover:text-primary transition-colors">
-        {item.title}
-      </h3>
-    </div>
-    <div className="w-full md:w-1/4 flex items-center justify-end gap-3">
-      <span className="text-muted-foreground text-xs uppercase tracking-wider group-hover:text-accent transition-colors hidden md:block">
-        LEGGI L'ARTICOLO
-      </span>
-      <div className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
-        <ChevronRight className="text-muted-foreground group-hover:text-accent-foreground transition-colors" />
+const NewsRow: React.FC<{ item: typeof NEWS_DATA[0] }> = ({ item }) => {
+  const isDisabled = item.url === '#';
+  
+  const content = (
+    <>
+      <div className="w-full md:w-1/4">
+        <span className="text-accent font-bold text-lg uppercase tracking-wider">
+          {item.date}
+        </span>
       </div>
-    </div>
-  </a>
-);
+      <div className="w-full md:w-2/4">
+        <h3 className="text-foreground font-black text-xl md:text-2xl uppercase leading-tight group-hover:text-primary transition-colors">
+          {item.title}
+        </h3>
+        {isDisabled && (
+          <span className="text-muted-foreground text-xs italic mt-1 block">(Link non disponibile)</span>
+        )}
+      </div>
+      {!isDisabled && (
+        <div className="w-full md:w-1/4 flex items-center justify-end gap-3">
+          <span className="text-muted-foreground text-xs uppercase tracking-wider group-hover:text-accent transition-colors hidden md:block">
+            LEGGI L'ARTICOLO
+          </span>
+          <div className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
+            <ChevronRight className="text-muted-foreground group-hover:text-accent-foreground transition-colors" />
+          </div>
+        </div>
+      )}
+    </>
+  );
+
+  if (isDisabled) {
+    return (
+      <div className="flex flex-col md:flex-row py-8 border-b border-border items-start md:items-center justify-between gap-4 px-4 -mx-4 opacity-60 cursor-not-allowed">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <a 
+      href={item.url} 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex flex-col md:flex-row py-8 border-b border-border group hover:bg-muted/50 transition-colors cursor-pointer items-start md:items-center justify-between gap-4 px-4 -mx-4"
+    >
+      {content}
+    </a>
+  );
+};
 
 const SalaStampaSection: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -43,44 +66,45 @@ const SalaStampaSection: React.FC = () => {
         Rassegna stampa e comunicati. Segui le notizie e gli aggiornamenti sull'attività politica e sociale.
       </p>
       
-      <div className="border-t border-border">
-        {initialItems.map((item) => (
-          <NewsRow key={item.id} item={item} />
-        ))}
-        
-        {/* Animated expandable section */}
-        <div 
-          className="grid transition-all duration-500 ease-in-out"
-          style={{
-            gridTemplateRows: isExpanded ? '1fr' : '0fr',
-          }}
-        >
-          <div className="overflow-hidden">
-            {hiddenItems.map((item) => (
-              <NewsRow key={item.id} item={item} />
-            ))}
+      <div className="relative pb-24">
+        <div className="border-t border-border">
+          {initialItems.map((item) => (
+            <NewsRow key={item.id} item={item} />
+          ))}
+          
+          {/* Animated expandable section */}
+          <div 
+            className="grid transition-all duration-500 ease-in-out"
+            style={{
+              gridTemplateRows: isExpanded ? '1fr' : '0fr',
+            }}
+          >
+            <div className="overflow-hidden">
+              {hiddenItems.map((item) => (
+                <NewsRow key={item.id} item={item} />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      
-      {hiddenItems.length > 0 && (
-        <div className="mt-8 flex justify-center">
-          <button 
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="group flex flex-col items-center gap-4 outline-none"
-          >
-            <span className="text-primary font-black uppercase tracking-wider group-hover:text-accent transition-colors">
-              {isExpanded ? 'MOSTRA MENO' : 'MOSTRA TUTTO'}
-            </span>
-            <div className="w-14 h-14 rounded-full border-2 border-primary group-hover:border-accent group-hover:bg-accent flex items-center justify-center transition-all duration-300">
+
+        {/* STICKY FLOATING BUTTON */}
+        {hiddenItems.length > 0 && (
+          <div className="sticky bottom-8 flex justify-center pointer-events-none mt-8">
+            <button 
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="pointer-events-auto bg-primary text-primary-foreground px-8 py-4 rounded-full shadow-2xl hover:bg-accent hover:scale-105 transition-all duration-300 flex items-center gap-3 group"
+            >
+              <span className="font-black uppercase tracking-wider">
+                {isExpanded ? 'MOSTRA MENO' : 'MOSTRA TUTTO'}
+              </span>
               <ChevronDown 
-                size={24} 
-                className={`text-primary group-hover:text-accent-foreground transition-all duration-500 ${isExpanded ? 'rotate-180' : 'rotate-0'} group-hover:scale-110`} 
+                size={20} 
+                className={`transition-transform duration-500 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} 
               />
-            </div>
-          </button>
-        </div>
-      )}
+            </button>
+          </div>
+        )}
+      </div>
     </Section>
   );
 };
