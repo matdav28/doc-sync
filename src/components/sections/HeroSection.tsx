@@ -32,14 +32,14 @@ const HeroSection: React.FC = () => {
             Identità, Proposte e Futuro.
           </p>
 
-          {/* CTA - Pill Shape */}
+          {/* CTA - Pill Shape with Red Hover */}
           <a 
             href="#chi-sono" 
-            className="flex items-center gap-3 bg-primary-foreground text-primary px-8 py-4 rounded-full font-black uppercase text-base hover:bg-muted transition-all duration-300 active:scale-95"
+            className="group flex items-center gap-3 bg-primary-foreground text-primary px-8 py-4 rounded-full font-black uppercase text-base hover:bg-accent hover:text-accent-foreground transition-all duration-300 active:scale-95"
           >
             <span>SCOPRI DI PIÙ</span>
-            <div className="bg-accent p-1.5 rounded-full text-accent-foreground">
-              <ArrowRight size={16} strokeWidth={3} />
+            <div className="bg-accent text-accent-foreground p-1.5 rounded-full group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
+              <ArrowRight size={16} strokeWidth={3} className="group-hover:translate-x-1 transition-transform duration-300" />
             </div>
           </a>
         </div>
