@@ -1,18 +1,25 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { TIMELINE_DATA } from '@/data/constants';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Download, Image as ImageIcon } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const TimelineRuler = ({ currentId }: { currentId: string }) => {
   return (
-    <div className="w-full overflow-x-auto py-8 mb-12">
-      <div className="flex items-center justify-between min-w-[800px] relative px-4">
+    <div className="w-full overflow-x-auto py-6 mb-8 border-b border-border">
+      <div className="flex items-center justify-between min-w-[700px] relative px-4">
         {/* Main Line */}
-        <div className="absolute left-0 right-0 top-1/2 h-1 bg-border -translate-y-1/2 z-0" />
+        <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-border -translate-y-1/2 z-0" />
         
-        {TIMELINE_DATA.map((item, index) => {
+        {TIMELINE_DATA.map((item) => {
           const isActive = item.id === currentId;
           return (
             <Link
@@ -20,23 +27,16 @@ const TimelineRuler = ({ currentId }: { currentId: string }) => {
               to={`/traguardi/${item.id}`}
               className="relative z-10 flex flex-col items-center group"
             >
-              {/* Year Label */}
-              <span className={`text-sm font-bold mb-3 transition-colors ${isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-primary'}`}>
+              <span className={`text-xs font-bold mb-2 transition-colors ${isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-primary'}`}>
                 {item.year.replace('Dal ', '')}
               </span>
               
-              {/* Dot */}
               <div className="relative">
-                <div className={`w-5 h-5 rounded-full border-4 transition-all duration-300 ${isActive ? 'bg-accent border-accent scale-125' : 'bg-background border-border group-hover:border-primary'}`} />
+                <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${isActive ? 'bg-accent border-accent scale-125' : 'bg-background border-muted-foreground group-hover:border-primary'}`} />
                 {isActive && (
                   <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping" />
                 )}
               </div>
-              
-              {/* Title Label */}
-              <span className={`text-xs mt-3 text-center max-w-[100px] leading-tight transition-colors ${isActive ? 'text-primary font-bold' : 'text-muted-foreground group-hover:text-primary'}`}>
-                {item.title.split(' ').slice(0, 2).join(' ')}
-              </span>
             </Link>
           );
         })}
@@ -47,7 +47,12 @@ const TimelineRuler = ({ currentId }: { currentId: string }) => {
 
 const TraguardiDetail: React.FC = () => {
   const { id } = useParams();
-  const data = TIMELINE_DATA.find(t => t.id === id);
+  
+  const currentIndex = TIMELINE_DATA.findIndex(t => t.id === id);
+  const data = TIMELINE_DATA[currentIndex];
+  
+  const prevItem = currentIndex > 0 ? TIMELINE_DATA[currentIndex - 1] : null;
+  const nextItem = currentIndex < TIMELINE_DATA.length - 1 ? TIMELINE_DATA[currentIndex + 1] : null;
 
   if (!data) {
     return (
@@ -75,69 +80,118 @@ const TraguardiDetail: React.FC = () => {
           {/* Back Button */}
           <Link
             to="/#traguardi"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6 group"
           >
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="font-medium">Torna alla Home</span>
+            <span className="font-medium">Home</span>
           </Link>
           
           {/* Timeline Ruler */}
           <TimelineRuler currentId={data.id} />
 
-          {/* Content */}
-          <div className="max-w-3xl mx-auto">
-            <div className="mb-8">
-              <span className="text-accent font-black text-6xl md:text-8xl">
-                {data.year.replace('Dal ', '')}
-              </span>
-            </div>
-            
-            <h1 className="text-primary font-black text-3xl md:text-5xl uppercase mb-8 leading-tight">
+          {/* HEADER */}
+          <div className="mb-10">
+            <span className="text-accent font-black text-5xl md:text-7xl lg:text-8xl">
+              {data.year.replace('Dal ', '')}
+            </span>
+            <h1 className="text-primary font-black text-2xl md:text-4xl lg:text-5xl uppercase mt-2 leading-tight">
               {data.title}
             </h1>
-            
-            <div className="prose prose-xl max-w-none">
-              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-                {data.fullContent}
+            <div className="w-24 h-1 bg-accent mt-6" />
+          </div>
+
+          {/* CONTENT GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            {/* TEXT COLUMN */}
+            <div>
+              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
+                {data.fullContent || data.details}
               </p>
+              
+              {/* Download Card */}
+              <div className="bg-muted/30 border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-accent transition-colors">
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Download className="text-accent" size={24} />
+                </div>
+                <div className="flex-grow">
+                  <p className="font-bold text-primary">Documentazione Ufficiale</p>
+                  <p className="text-sm text-muted-foreground">Scarica il PDF relativo a questo incarico.</p>
+                </div>
+                <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-bold text-sm uppercase hover:bg-accent hover:text-accent-foreground transition-colors">
+                  SCARICA
+                </button>
+              </div>
             </div>
 
-            {/* Navigation */}
-            <div className="flex justify-between items-center mt-16 pt-8 border-t border-border">
-              {(() => {
-                const currentIndex = TIMELINE_DATA.findIndex(t => t.id === data.id);
-                const prevItem = currentIndex > 0 ? TIMELINE_DATA[currentIndex - 1] : null;
-                const nextItem = currentIndex < TIMELINE_DATA.length - 1 ? TIMELINE_DATA[currentIndex + 1] : null;
-                
-                return (
-                  <>
-                    {prevItem ? (
-                      <Link
-                        to={`/traguardi/${prevItem.id}`}
-                        className="flex flex-col items-start group"
-                      >
-                        <span className="text-sm text-muted-foreground mb-1">Precedente</span>
-                        <span className="text-primary font-bold group-hover:text-accent transition-colors">
-                          {prevItem.year} - {prevItem.title}
-                        </span>
-                      </Link>
-                    ) : <div />}
-                    
-                    {nextItem ? (
-                      <Link
-                        to={`/traguardi/${nextItem.id}`}
-                        className="flex flex-col items-end group"
-                      >
-                        <span className="text-sm text-muted-foreground mb-1">Successivo</span>
-                        <span className="text-primary font-bold group-hover:text-accent transition-colors">
-                          {nextItem.year} - {nextItem.title}
-                        </span>
-                      </Link>
-                    ) : <div />}
-                  </>
-                );
-              })()}
+            {/* GALLERY COLUMN */}
+            <div className="space-y-6">
+              {/* Main Image Placeholder */}
+              <div className="aspect-video bg-muted/30 border border-border rounded-2xl flex items-center justify-center">
+                <div className="text-center text-muted-foreground">
+                  <ImageIcon size={48} className="mx-auto mb-2 opacity-50" />
+                  <p className="text-sm">FOTO PRINCIPALE</p>
+                </div>
+              </div>
+              
+              {/* Mini Carousel */}
+              <div className="relative">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Gallery</p>
+                </div>
+                <Carousel className="w-full">
+                  <CarouselContent className="-ml-2">
+                    {[1, 2, 3].map((_, i) => (
+                      <CarouselItem key={i} className="pl-2 basis-1/3">
+                        <div className="aspect-square bg-muted/30 border border-border rounded-xl flex items-center justify-center">
+                          <span className="text-xs text-muted-foreground">FOTO {i + 1}</span>
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <div className="absolute -top-8 right-0 flex gap-2">
+                    <CarouselPrevious className="static translate-y-0 h-7 w-7" />
+                    <CarouselNext className="static translate-y-0 h-7 w-7" />
+                  </div>
+                </Carousel>
+              </div>
             </div>
+          </div>
+
+          {/* FOOTER NAVIGATION (PREV/NEXT) */}
+          <div className="flex justify-between items-stretch mt-16 pt-8 border-t border-border gap-4">
+            {prevItem ? (
+              <Link
+                to={`/traguardi/${prevItem.id}`}
+                className="flex items-center gap-4 group bg-muted/20 hover:bg-muted/40 border border-border rounded-2xl p-5 flex-1 transition-all"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
+                  <ArrowLeft className="text-primary-foreground" size={20} />
+                </div>
+                <div>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Precedente</span>
+                  <p className="text-primary font-bold group-hover:text-accent transition-colors text-sm md:text-base line-clamp-1">
+                    {prevItem.title}
+                  </p>
+                </div>
+              </Link>
+            ) : <div className="flex-1" />}
+
+            {nextItem ? (
+              <Link
+                to={`/traguardi/${nextItem.id}`}
+                className="flex items-center gap-4 group bg-muted/20 hover:bg-muted/40 border border-border rounded-2xl p-5 flex-1 transition-all text-right flex-row-reverse"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
+                  <ArrowRight className="text-primary-foreground" size={20} />
+                </div>
+                <div>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Successivo</span>
+                  <p className="text-primary font-bold group-hover:text-accent transition-colors text-sm md:text-base line-clamp-1">
+                    {nextItem.title}
+                  </p>
+                </div>
+              </Link>
+            ) : <div className="flex-1" />}
           </div>
         </div>
       </main>
