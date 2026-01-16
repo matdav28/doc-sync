@@ -4,6 +4,7 @@ import Section from '@/components/Section';
 const ChiSonoSection: React.FC = () => {
   return (
     <Section id="chi-sono" title="CHI SONO" bgColor="bg-background">
+      {/* 01: LE RADICI */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left: Text Content */}
         <div className="order-2 lg:order-1">
@@ -29,7 +30,7 @@ const ChiSonoSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Image */}
+        {/* Right: Image - REMOVED LABEL */}
         <div className="order-1 lg:order-2">
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
@@ -39,14 +40,11 @@ const ChiSonoSection: React.FC = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-accent text-accent-foreground px-6 py-4 rounded-2xl font-black uppercase text-sm">
-              Pozzallo, Sicilia
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Second block - La Formazione */}
+      {/* 02: LA FORMAZIONE */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-24">
         {/* Left: Image */}
         <div>
@@ -82,7 +80,7 @@ const ChiSonoSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Third block - La Politica Reale */}
+      {/* 03: LA POLITICA REALE */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-24">
         {/* Left: Text */}
         <div>
@@ -118,29 +116,45 @@ const ChiSonoSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Identity Box - Il Futuro */}
-      <div className="bg-primary rounded-3xl p-10 md:p-16 text-primary-foreground relative overflow-hidden mt-24">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12">
-          <div className="md:col-span-5 flex flex-col justify-center">
-            <h2 className="font-black text-4xl md:text-5xl uppercase mb-6 leading-tight">
-              UN'IDENTITÀ<br/>IN COSTRUZIONE.
-            </h2>
-            <div className="w-24 h-2 bg-accent mb-6"></div>
+      {/* 04: CONTINUARE A IMPEGNARSI - NEW */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-24">
+        {/* Left: Image */}
+        <div>
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
+              <img 
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop"
+                alt="Impegno universitario"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          <div className="md:col-span-7">
-            <p className="text-xl leading-relaxed font-medium text-primary-foreground/90 mb-6">
-              Terminata l'esperienza scolastica, ho portato il mio impegno all'Università di Bologna. 
-              Essere rappresentante è un lavoro spesso silenzioso, ma essenziale.
+        </div>
+
+        {/* Right: Text */}
+        <div>
+          <div className="mb-8">
+            <span className="text-accent/20 font-black text-8xl leading-none block mb-[-40px] select-none">04</span>
+            <h3 className="text-primary font-black text-4xl md:text-5xl uppercase mb-6 relative">
+              CONTINUARE<br/>A IMPEGNARSI
+            </h3>
+          </div>
+          <div className="prose prose-xl text-muted-foreground leading-relaxed">
+            <p className="mb-6 text-lg md:text-xl">
+              Terminata l'esperienza scolastica, ho scelto di continuare il mio impegno anche 
+              all'università, entrando negli organi di rappresentanza del Dipartimento di 
+              Scienze Giuridiche dell'Università di Bologna.
             </p>
-            <p className="text-lg text-primary-foreground/70 leading-relaxed">
-              La politica non è solo partecipazione, è costruzione. È farsi carico dei problemi 
-              collettivi e provare a risolverli insieme. È questo che cerco di fare ogni giorno.
+            <p className="text-lg md:text-xl">
+              Essere rappresentante significa studiare, confrontarsi, proporre soluzioni. 
+              È un lavoro spesso silenzioso, ma essenziale per rendere le istituzioni più 
+              giuste e accessibili.
             </p>
           </div>
         </div>
       </div>
+
+      {/* REMOVED IDENTITY BOX */}
     </Section>
   );
 };

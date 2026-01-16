@@ -6,10 +6,12 @@ export interface NewsItem {
 }
 
 export interface TimelineItem {
+  id: string;
   year: string;
   title: string;
   description: string;
   details: string;
+  fullContent: string;
 }
 
 export interface ProjectDetailItem {
@@ -127,40 +129,52 @@ export const NEWS_DATA: NewsItem[] = [
 
 export const TIMELINE_DATA: TimelineItem[] = [
   {
+    id: "2019-rappresentante",
     year: "2019",
     title: "RAPPRESENTANTE D'ISTITUTO",
     description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare.",
-    details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare. Organizzazione, spazi, assemblee, partecipazione: temi concreti per una scuola viva."
+    details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare. Organizzazione, spazi, assemblee, partecipazione: temi concreti per una scuola viva.",
+    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare. Organizzazione, spazi, assemblee, partecipazione: temi concreti per una scuola viva. È stata la mia prima esperienza di rappresentanza, il momento in cui ho capito che le cose possono cambiare se qualcuno decide di impegnarsi."
   },
   {
+    id: "2020-presidente-cps",
     year: "2020",
     title: "PRESIDENTE CPS RAGUSA",
     description: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica.",
-    details: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica. Abbiamo gestito l'emergenza, i trasporti e il diritto allo studio in un momento storico senza precedenti."
+    details: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica. Abbiamo gestito l'emergenza, i trasporti e il diritto allo studio in un momento storico senza precedenti.",
+    fullContent: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica. Abbiamo gestito l'emergenza, i trasporti e il diritto allo studio in un momento storico senza precedenti. Come Presidente della Consulta Provinciale Studentesca di Ragusa ho coordinato le rappresentanze di tutti gli istituti della provincia, portando la voce degli studenti nelle sedi istituzionali."
   },
   {
+    id: "2021-organo-garanzia",
     year: "2021",
     title: "MEMBRO ORGANO DI GARANZIA",
     description: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia.",
-    details: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia. Un'esperienza istituzionale di alto profilo per garantire equità e rispetto delle norme."
+    details: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia. Un'esperienza istituzionale di alto profilo per garantire equità e rispetto delle norme.",
+    fullContent: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia. Un'esperienza istituzionale di alto profilo per garantire equità e rispetto delle norme. L'Organo di Garanzia regionale è il luogo dove si decide in ultima istanza sui ricorsi degli studenti, un'esperienza che mi ha insegnato l'importanza del rigore e dell'imparzialità."
   },
   {
+    id: "2022-rappresentante-unibo",
     year: "Dal 2022",
     title: "RAPPRESENTANTE UNIBO",
     description: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole.",
-    details: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole. Un lavoro quotidiano per migliorare la didattica e i servizi per gli studenti dell'Alma Mater."
+    details: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole. Un lavoro quotidiano per migliorare la didattica e i servizi per gli studenti dell'Alma Mater.",
+    fullContent: "Nel Dipartimento di Scienze Giuridiche dell'Università di Bologna. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole. Un lavoro quotidiano per migliorare la didattica e i servizi per gli studenti dell'Alma Mater. Partecipo ai consigli di dipartimento, alle commissioni paritetiche e ai tavoli di confronto con i docenti per portare avanti le istanze degli studenti."
   },
   {
+    id: "2022-segretario-gd",
     year: "2022",
     title: "SEGRETARIO GD RAGUSA",
     description: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani.",
-    details: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani. Abbiamo ricostruito una comunità politica partendo dai territori e dai bisogni della nostra generazione."
+    details: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani. Abbiamo ricostruito una comunità politica partendo dai territori e dai bisogni della nostra generazione.",
+    fullContent: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani. Abbiamo ricostruito una comunità politica partendo dai territori e dai bisogni della nostra generazione. Come Segretario dei Giovani Democratici della provincia di Ragusa ho lavorato per costruire una rete di giovani impegnati, organizzando eventi, dibattiti e momenti di formazione politica."
   },
   {
+    id: "2025-segreteria-regionale",
     year: "2025",
     title: "SEGRETERIA REGIONALE GD",
     description: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici.",
-    details: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici. Un impegno che si allarga a livello regionale e nazionale per portare la voce della Sicilia ai tavoli che contano."
+    details: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici. Un impegno che si allarga a livello regionale e nazionale per portare la voce della Sicilia ai tavoli che contano.",
+    fullContent: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici. Un impegno che si allarga a livello regionale e nazionale per portare la voce della Sicilia ai tavoli che contano. Oggi lavoro per costruire una rete regionale solida, capace di dialogare con il territorio e di incidere nelle scelte del partito a livello nazionale."
   }
 ];
 
@@ -218,3 +232,20 @@ export const NAV_ITEMS = [
   { label: 'LIBRO', href: '#libro' },
   { label: 'SERVIZIO CIVILE', href: '#servizio-civile' },
 ];
+
+export const NAV_MENU = {
+  traguardi: TIMELINE_DATA.map(t => ({ 
+    label: t.year.replace('Dal ', '') + " - " + t.title, 
+    href: `/traguardi/${t.id}` 
+  })),
+  progetti: [
+    { label: "EURONESS", href: "/dettaglio/euroness" },
+    { label: "GREENACTION", href: "/dettaglio/greenaction" },
+    { label: "ENIGMA LAB", href: "/dettaglio/enigma-lab" }
+  ],
+  servizio: [
+    { label: "CROCE ROSSA", href: "/dettaglio/croce-rossa" },
+    { label: "LEGAMBIENTE", href: "/dettaglio/legambiente" },
+    { label: "A.G.E.S.C.I.", href: "/dettaglio/agesci" }
+  ]
+};
