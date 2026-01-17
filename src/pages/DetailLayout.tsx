@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Home } from 'lucide-react';
 import { PROJECTS_DATA } from '@/data/constants';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -36,21 +35,13 @@ const DetailLayout = () => {
       <Header />
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-          {/* Navigation Buttons */}
-          <div className="flex items-center gap-4 mb-12">
+          {/* Navigation */}
+          <div className="mb-12">
             <Link 
               to="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+              className="inline-flex items-center text-accent hover:text-primary transition-colors font-black uppercase tracking-widest text-sm"
             >
-              <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-              <span className="font-semibold uppercase tracking-wider text-sm">Indietro</span>
-            </Link>
-            <Link 
-              to="/" 
-              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-              aria-label="Home"
-            >
-              <Home className="w-5 h-5" />
+              HOME
             </Link>
           </div>
 
