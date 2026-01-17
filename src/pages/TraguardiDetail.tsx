@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { TIMELINE_DATA } from '@/data/constants';
-import { ArrowLeft, ArrowRight, Download, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import {
@@ -14,10 +14,10 @@ import {
 
 const TimelineRuler = ({ currentId }: { currentId: string }) => {
   return (
-    <div className="w-full overflow-x-auto py-6 mb-8 border-b border-border">
-      <div className="flex items-center justify-between min-w-[700px] relative px-4">
+    <div className="w-full overflow-x-auto py-8 mb-10 border-b border-border">
+      <div className="flex items-start justify-between min-w-[800px] relative px-4">
         {/* Main Line */}
-        <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-border -translate-y-1/2 z-0" />
+        <div className="absolute left-0 right-0 top-[28px] h-0.5 bg-border z-0" />
         
         {TIMELINE_DATA.map((item) => {
           const isActive = item.id === currentId;
@@ -25,17 +25,24 @@ const TimelineRuler = ({ currentId }: { currentId: string }) => {
             <Link
               key={item.id}
               to={`/traguardi/${item.id}`}
-              className="relative z-10 flex flex-col items-center group"
+              className="relative z-10 flex flex-col items-center group max-w-[120px]"
             >
-              <span className={`text-xs font-bold mb-2 transition-colors ${isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-primary'}`}>
-                {item.year.replace('Dal ', '')}
-              </span>
-              
-              <div className="relative">
-                <div className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${isActive ? 'bg-accent border-accent scale-125' : 'bg-background border-muted-foreground group-hover:border-primary'}`} />
+              {/* Dot */}
+              <div className="relative mb-3">
+                <div className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${isActive ? 'bg-accent border-accent scale-125' : 'bg-background border-muted-foreground group-hover:border-primary group-hover:scale-110'}`} />
                 {isActive && (
                   <div className="absolute inset-0 rounded-full bg-accent/30 animate-ping" />
                 )}
+              </div>
+              
+              {/* Labels */}
+              <div className="text-center">
+                <span className={`block text-sm font-black transition-colors ${isActive ? 'text-accent' : 'text-muted-foreground group-hover:text-primary'}`}>
+                  {item.year.replace('Dal ', '')}
+                </span>
+                <span className={`block text-[10px] uppercase tracking-wider mt-1 leading-tight transition-colors ${isActive ? 'text-accent' : 'text-muted-foreground/70 group-hover:text-primary/70'}`}>
+                  {item.title}
+                </span>
               </div>
             </Link>
           );
@@ -86,11 +93,11 @@ const TraguardiDetail: React.FC = () => {
             <span className="font-medium">Home</span>
           </Link>
           
-          {/* Timeline Ruler */}
+          {/* Timeline Ruler with Year + Role */}
           <TimelineRuler currentId={data.id} />
 
           {/* HEADER */}
-          <div className="mb-10">
+          <div className="mb-12">
             <span className="text-accent font-black text-5xl md:text-7xl lg:text-8xl">
               {data.year.replace('Dal ', '')}
             </span>
@@ -102,25 +109,11 @@ const TraguardiDetail: React.FC = () => {
 
           {/* CONTENT GRID */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            {/* TEXT COLUMN */}
+            {/* TEXT COLUMN - Increased text size */}
             <div>
-              <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
+              <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed">
                 {data.fullContent || data.details}
               </p>
-              
-              {/* Download Card */}
-              <div className="bg-muted/30 border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-accent transition-colors">
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                  <Download className="text-accent" size={24} />
-                </div>
-                <div className="flex-grow">
-                  <p className="font-bold text-primary">Documentazione Ufficiale</p>
-                  <p className="text-sm text-muted-foreground">Scarica il PDF relativo a questo incarico.</p>
-                </div>
-                <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full font-bold text-sm uppercase hover:bg-accent hover:text-accent-foreground transition-colors">
-                  SCARICA
-                </button>
-              </div>
             </div>
 
             {/* GALLERY COLUMN */}
@@ -157,19 +150,19 @@ const TraguardiDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* FOOTER NAVIGATION (PREV/NEXT) */}
-          <div className="flex justify-between items-stretch mt-16 pt-8 border-t border-border gap-4">
+          {/* NAVIGATION ARROWS - Graphically Enhanced */}
+          <div className="flex justify-between items-stretch mt-20 pt-10 border-t border-border gap-6">
             {prevItem ? (
               <Link
                 to={`/traguardi/${prevItem.id}`}
-                className="flex items-center gap-4 group bg-muted/20 hover:bg-muted/40 border border-border rounded-2xl p-5 flex-1 transition-all"
+                className="flex items-center gap-5 group bg-gradient-to-r from-muted/40 to-muted/20 hover:from-primary hover:to-primary/80 border border-border hover:border-primary rounded-2xl p-6 md:p-8 flex-1 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
               >
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
-                  <ArrowLeft className="text-primary-foreground" size={20} />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary-foreground transition-colors shrink-0 group-hover:scale-110 duration-300">
+                  <ArrowLeft className="text-primary-foreground group-hover:text-primary" size={24} />
                 </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Precedente</span>
-                  <p className="text-primary font-bold group-hover:text-accent transition-colors text-sm md:text-base line-clamp-1">
+                <div className="overflow-hidden">
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider group-hover:text-primary-foreground/70 transition-colors">Precedente</span>
+                  <p className="text-primary font-black group-hover:text-primary-foreground transition-colors text-base md:text-lg line-clamp-1 uppercase">
                     {prevItem.title}
                   </p>
                 </div>
@@ -179,14 +172,14 @@ const TraguardiDetail: React.FC = () => {
             {nextItem ? (
               <Link
                 to={`/traguardi/${nextItem.id}`}
-                className="flex items-center gap-4 group bg-muted/20 hover:bg-muted/40 border border-border rounded-2xl p-5 flex-1 transition-all text-right flex-row-reverse"
+                className="flex items-center gap-5 group bg-gradient-to-l from-muted/40 to-muted/20 hover:from-primary hover:to-primary/80 border border-border hover:border-primary rounded-2xl p-6 md:p-8 flex-1 transition-all duration-300 text-right flex-row-reverse hover:shadow-xl hover:shadow-primary/20"
               >
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
-                  <ArrowRight className="text-primary-foreground" size={20} />
+                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary-foreground transition-colors shrink-0 group-hover:scale-110 duration-300">
+                  <ArrowRight className="text-primary-foreground group-hover:text-primary" size={24} />
                 </div>
-                <div>
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider">Successivo</span>
-                  <p className="text-primary font-bold group-hover:text-accent transition-colors text-sm md:text-base line-clamp-1">
+                <div className="overflow-hidden">
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider group-hover:text-primary-foreground/70 transition-colors">Successivo</span>
+                  <p className="text-primary font-black group-hover:text-primary-foreground transition-colors text-base md:text-lg line-clamp-1 uppercase">
                     {nextItem.title}
                   </p>
                 </div>

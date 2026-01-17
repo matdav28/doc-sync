@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right: Typography & Pill CTA (SWAPPED TEXTS) */}
+        {/* Right: Typography & Pill CTA */}
         <div className="w-full md:w-1/2 flex flex-col items-start text-left z-20 pl-0 md:pl-12 lg:pl-20">
           <h3 className="text-accent font-black tracking-[0.3em] uppercase mb-4 text-xs md:text-sm">
             UN SISTEMA DI INFORMAZIONE
@@ -30,24 +30,27 @@ const HeroSection: React.FC = () => {
             Identità, Proposte e Futuro.
           </p>
 
-          {/* CTA - Pill Shape with Red Hover & Arrow Down */}
+          {/* CTA - Pill Shape with Red Hover & 360deg Arrow Rotation */}
           <a 
             href="#chi-sono" 
             className="group flex items-center gap-3 bg-primary-foreground text-primary px-8 py-4 rounded-full font-black uppercase text-base hover:bg-accent hover:text-accent-foreground transition-all duration-300 active:scale-95"
           >
             <span>Scopri di più</span>
             <div className="bg-accent text-accent-foreground p-1.5 rounded-full group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
-              <ArrowDown size={16} strokeWidth={3} className="group-hover:translate-y-1 transition-transform duration-300" />
+              <ArrowDown size={16} strokeWidth={3} className="transition-transform duration-500 group-hover:rotate-[360deg]" />
             </div>
           </a>
         </div>
       </div>
 
-      {/* SCROLL INDICATOR (Mouse Animation) */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/50 flex items-start justify-center p-1">
-          <div className="w-1.5 h-3 bg-primary-foreground/80 rounded-full animate-bounce" />
-        </div>
+      {/* LOTTIE SCROLL INDICATOR */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <iframe 
+          src="https://lottie.host/embed/78f29b9c-8e25-4582-b7ef-f7ea8c9c8da8/VbmZF3mOyI.lottie"
+          className="w-16 h-16 pointer-events-none"
+          style={{ border: 'none', background: 'transparent' }}
+          title="Scroll indicator"
+        />
       </div>
     </section>
   );

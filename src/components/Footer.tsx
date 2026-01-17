@@ -10,28 +10,21 @@ const Footer: React.FC = () => {
           <span className="heading-stampatello text-6xl md:text-7xl font-black leading-none tracking-tighter">MIGLIORE</span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-20">
-          <div className="flex flex-col space-y-8">
-            <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">SOCIAL MEDIA</h4>
-            <div className="flex space-x-10">
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Facebook">
-                <Facebook size={32} strokeWidth={1.5} />
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Instagram">
-                <Instagram size={32} strokeWidth={1.5} />
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="YouTube">
-                <Youtube size={32} strokeWidth={1.5} />
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity" aria-label="WhatsApp">
-                <MessageCircle size={32} strokeWidth={1.5} />
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-col space-y-8">
-            <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">CONTATTI</h4>
-            <p className="text-lg font-medium">info@matteomigliore.it</p>
-            <p className="text-lg font-medium">Pozzallo (RG), Sicilia</p>
+        <div className="flex flex-col space-y-8">
+          <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">SOCIAL MEDIA</h4>
+          <div className="flex space-x-10">
+            <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Facebook">
+              <Facebook size={32} strokeWidth={1.5} />
+            </a>
+            <a href="#" className="hover:opacity-70 transition-opacity" aria-label="Instagram">
+              <Instagram size={32} strokeWidth={1.5} />
+            </a>
+            <a href="#" className="hover:opacity-70 transition-opacity" aria-label="YouTube">
+              <Youtube size={32} strokeWidth={1.5} />
+            </a>
+            <a href="#" className="hover:opacity-70 transition-opacity" aria-label="WhatsApp">
+              <MessageCircle size={32} strokeWidth={1.5} />
+            </a>
           </div>
         </div>
       </div>
