@@ -1,26 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/Section';
-import { Lightbulb, Leaf, Map, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import logoEuroness from '@/assets/logo-euroness.png';
+import logoGreenaction from '@/assets/logo-greenaction.png';
+import logoEnigmalab from '@/assets/logo-enigmalab.png';
 
 const projects = [
-  { id: "euroness", title: "EURONESS", desc: "Risparmiare, trarre vantaggio, fare del bene. Trasformare il risparmio in solidarietà.", icon: "lightbulb" },
-  { id: "greenaction", title: "GREENACTION", desc: "Imparare a differenziare per imparare a scegliere. La raccolta differenziata come esercizio di cittadinanza.", icon: "leaf" },
-  { id: "enigma-lab", title: "ENIGMA LAB", desc: "Gioco, città, collaborazione. Trasformare un gioco statico in un'esperienza urbana dinamica.", icon: "map" }
+  { id: "euroness", title: "EURONESS", desc: "Risparmiare, trarre vantaggio, fare del bene. Trasformare il risparmio in solidarietà.", logo: logoEuroness },
+  { id: "greenaction", title: "GREENACTION", desc: "Imparare a differenziare per imparare a scegliere. La raccolta differenziata come esercizio di cittadinanza.", logo: logoGreenaction },
+  { id: "enigma-lab", title: "ENIGMA LAB", desc: "Gioco, città, collaborazione. Trasformare un gioco statico in un'esperienza urbana dinamica.", logo: logoEnigmalab }
 ];
-
-const getProjectIcon = (iconType: string) => {
-  switch (iconType) {
-    case 'lightbulb':
-      return <Lightbulb className="w-8 h-8 text-primary-foreground" />;
-    case 'leaf':
-      return <Leaf className="w-8 h-8 text-primary-foreground" />;
-    case 'map':
-      return <Map className="w-8 h-8 text-primary-foreground" />;
-    default:
-      return <Lightbulb className="w-8 h-8 text-primary-foreground" />;
-  }
-};
 
 const ProgettiSection: React.FC = () => {
   return (
@@ -37,8 +27,8 @@ const ProgettiSection: React.FC = () => {
             to={`/dettaglio/${project.id}`}
             className="group relative w-full bg-primary rounded-3xl p-10 border-4 border-transparent hover:border-accent transition-all duration-300 flex flex-col items-start shadow-none cursor-pointer h-full min-h-[350px]"
           >
-            <div className="w-16 h-16 bg-primary-foreground/10 rounded-full mb-8 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-              {getProjectIcon(project.icon)}
+            <div className="w-20 h-20 bg-primary-foreground/10 rounded-full mb-8 flex items-center justify-center p-3 group-hover:bg-primary-foreground/20 transition-colors duration-300">
+              <img src={project.logo} alt={`Logo ${project.title}`} className="max-w-full max-h-full object-contain" />
             </div>
             
             <h3 className="text-primary-foreground font-black text-2xl md:text-3xl uppercase mb-4 leading-tight">

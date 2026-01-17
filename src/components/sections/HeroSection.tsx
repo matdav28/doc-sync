@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 import matteoHero from '@/assets/matteo-hero.jpeg';
+import scrollDownGif from '@/assets/scroll-down.gif';
 
 const HeroSection: React.FC = () => {
   return (
@@ -43,13 +44,12 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* LOTTIE SCROLL INDICATOR */}
+      {/* SCROLL INDICATOR */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <iframe 
-          src="https://lottie.host/embed/78f29b9c-8e25-4582-b7ef-f7ea8c9c8da8/VbmZF3mOyI.lottie"
-          className="w-16 h-16 pointer-events-none"
-          style={{ border: 'none', background: 'transparent' }}
-          title="Scroll indicator"
+        <img 
+          src={scrollDownGif}
+          alt="Scroll down"
+          className="w-12 h-12 pointer-events-none opacity-80"
         />
       </div>
     </section>

@@ -150,41 +150,37 @@ const TraguardiDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* NAVIGATION ARROWS - Graphically Enhanced */}
-          <div className="flex justify-between items-stretch mt-20 pt-10 border-t border-border gap-6">
+          {/* NAVIGATION ARROWS - Minimalist Red */}
+          <div className="flex justify-between items-center mt-20 pt-10 border-t border-border">
             {prevItem ? (
               <Link
                 to={`/traguardi/${prevItem.id}`}
-                className="flex items-center gap-5 group bg-gradient-to-r from-muted/40 to-muted/20 hover:from-primary hover:to-primary/80 border border-border hover:border-primary rounded-2xl p-6 md:p-8 flex-1 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
+                className="flex items-center gap-4 group transition-transform duration-300 hover:-translate-x-2"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary-foreground transition-colors shrink-0 group-hover:scale-110 duration-300">
-                  <ArrowLeft className="text-primary-foreground group-hover:text-primary" size={24} />
-                </div>
-                <div className="overflow-hidden">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider group-hover:text-primary-foreground/70 transition-colors">Precedente</span>
-                  <p className="text-primary font-black group-hover:text-primary-foreground transition-colors text-base md:text-lg line-clamp-1 uppercase">
+                <ArrowLeft className="text-accent" size={28} strokeWidth={2.5} />
+                <div>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider block">Precedente</span>
+                  <p className="text-accent font-black text-lg uppercase group-hover:text-primary transition-colors">
                     {prevItem.title}
                   </p>
                 </div>
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div />}
 
             {nextItem ? (
               <Link
                 to={`/traguardi/${nextItem.id}`}
-                className="flex items-center gap-5 group bg-gradient-to-l from-muted/40 to-muted/20 hover:from-primary hover:to-primary/80 border border-border hover:border-primary rounded-2xl p-6 md:p-8 flex-1 transition-all duration-300 text-right flex-row-reverse hover:shadow-xl hover:shadow-primary/20"
+                className="flex items-center gap-4 group text-right transition-transform duration-300 hover:translate-x-2"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary flex items-center justify-center group-hover:bg-primary-foreground transition-colors shrink-0 group-hover:scale-110 duration-300">
-                  <ArrowRight className="text-primary-foreground group-hover:text-primary" size={24} />
-                </div>
-                <div className="overflow-hidden">
-                  <span className="text-xs text-muted-foreground uppercase tracking-wider group-hover:text-primary-foreground/70 transition-colors">Successivo</span>
-                  <p className="text-primary font-black group-hover:text-primary-foreground transition-colors text-base md:text-lg line-clamp-1 uppercase">
+                <div>
+                  <span className="text-xs text-muted-foreground uppercase tracking-wider block">Successivo</span>
+                  <p className="text-accent font-black text-lg uppercase group-hover:text-primary transition-colors">
                     {nextItem.title}
                   </p>
                 </div>
+                <ArrowRight className="text-accent" size={28} strokeWidth={2.5} />
               </Link>
-            ) : <div className="flex-1" />}
+            ) : <div />}
           </div>
         </div>
       </main>
