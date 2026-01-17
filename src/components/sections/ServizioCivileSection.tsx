@@ -1,26 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Section from '@/components/Section';
-import { Heart, Leaf, Compass, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import logoCri from '@/assets/logo-cri.png';
+import logoLegambiente from '@/assets/logo-legambiente.png';
+import logoAgesci from '@/assets/logo-agesci.png';
 
 const services = [
   { 
     id: "croce-rossa", 
     title: "CROCE ROSSA ITALIANA", 
     desc: "Un anno di servizio presso la Croce Rossa Italiana. Assistenza, trasporto sanitario, supporto alle persone in difficoltà. Un'esperienza che ti cambia per sempre.",
-    Icon: Heart 
+    logo: logoCri
   },
   { 
     id: "legambiente", 
     title: "LEGAMBIENTE", 
     desc: "Una mano per l'ambiente. Circolo 'A Valata' di Pozzallo. Ambientalismo attivo e responsabilità quotidiana per la tutela del nostro territorio e delle nostre radici.",
-    Icon: Leaf 
+    logo: logoLegambiente
   },
   { 
     id: "agesci", 
     title: "A.G.E.S.C.I.", 
     desc: "Educare, educarsi, servire. Dal Gruppo Pozzallo 1 al servizio educativo come capo nel Gruppo Ispica 2. Lo scoutismo come scuola di cittadinanza e di servizio al prossimo.",
-    Icon: Compass 
+    logo: logoAgesci
   }
 ];
 
@@ -39,8 +42,12 @@ const ServizioCivileSection: React.FC = () => {
             to={`/dettaglio/${service.id}`}
             className="p-10 md:p-12 lg:p-16 bg-background flex flex-col items-start h-full group border border-border hover:border-accent transition-all cursor-pointer"
           >
-            <div className="w-20 h-20 bg-accent/10 flex items-center justify-center mb-10 border-4 border-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all">
-              <service.Icon size={48} strokeWidth={2} className="text-accent group-hover:text-accent-foreground" />
+            <div className="w-24 h-24 mb-10 flex items-center justify-center">
+              <img 
+                src={service.logo} 
+                alt={`Logo ${service.title}`}
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
             <h3 className="heading-transition text-3xl md:text-4xl mb-8 text-foreground group-hover:text-accent transition-colors font-black uppercase">
               {service.title}

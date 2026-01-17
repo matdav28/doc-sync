@@ -1,26 +1,20 @@
 import React from 'react';
 import Section from '@/components/Section';
+import { ArrowUpRight } from 'lucide-react';
+import bookCover from '@/assets/book-cover.png';
 
 const LibroSection: React.FC = () => {
   return (
     <Section id="libro" title="IL LIBRO" bgColor="bg-muted">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-        {/* Left: Book Cover */}
+        {/* Left: Book Cover Image */}
         <div className="flex justify-center">
-          <div className="relative w-[280px] md:w-[320px] h-[420px] md:h-[480px] bg-primary rounded-r-2xl shadow-2xl flex flex-col items-center justify-center text-center p-8 transform hover:scale-105 transition-transform duration-500">
-            {/* Fake Book Spine details */}
-            <div className="absolute left-0 top-0 bottom-0 w-4 bg-primary-foreground/10 border-r border-primary-foreground/10"></div>
-            
-            <span className="text-primary-foreground/30 font-black uppercase tracking-widest text-sm mb-4">
-              MATTEO MIGLIORE
-            </span>
-            <h3 className="text-primary-foreground font-black text-3xl md:text-4xl uppercase leading-tight mb-8">
-              RITORNO<br/>AL<br/>FUTURO
-            </h3>
-            <div className="w-12 h-1 bg-accent mb-8"></div>
-            <span className="text-primary-foreground/50 text-xs uppercase tracking-widest">
-              Edizione 2023
-            </span>
+          <div className="relative w-[280px] md:w-[320px] transform hover:scale-105 transition-transform duration-500">
+            <img 
+              src={bookCover}
+              alt="Ritorno al Futuro - Copertina del libro di Matteo Migliore"
+              className="w-full h-auto rounded-r-lg shadow-2xl"
+            />
           </div>
         </div>
 
@@ -45,15 +39,16 @@ const LibroSection: React.FC = () => {
             </p>
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <button className="btn-brand-primary">
-              ACQUISTA ORA
-            </button>
-            <button className="btn-brand-outline">
-              LEGGI L'INTRODUZIONE
-            </button>
-          </div>
+          {/* Amazon Button */}
+          <a 
+            href="https://www.amazon.it" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-black uppercase text-base hover:bg-accent hover:text-accent-foreground transition-all duration-300 active:scale-95 group"
+          >
+            <span>SCOPRI SU AMAZON</span>
+            <ArrowUpRight size={20} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </a>
         </div>
       </div>
     </Section>
