@@ -44,13 +44,13 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <img 
-          src={scrollDownGif}
-          alt="Scroll down"
-          className="w-12 h-12 pointer-events-none opacity-80"
-        />
+      {/* MOUSE LOTTIE ANIMATION */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[60px] h-[100px] pointer-events-none opacity-80">
+        <iframe 
+          src="https://lottie.host/embed/5bcc71db-16b0-4ddf-bd02-7c2412bb3349/C8yrmBwdBT.lottie" 
+          className="w-full h-full border-none overflow-hidden" 
+          title="Scroll Animation"
+        ></iframe>
       </div>
     </section>
   );

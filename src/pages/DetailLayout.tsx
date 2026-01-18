@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { PROJECTS_DATA } from '@/data/constants';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { ArrowLeft } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -35,13 +36,17 @@ const DetailLayout = () => {
       <Header />
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-          {/* Navigation */}
+          {/* Navigation - Styled like Traguardi */}
           <div className="mb-12">
             <Link 
               to="/" 
-              className="inline-flex items-center text-accent hover:text-primary transition-colors font-black uppercase tracking-widest text-sm"
+              className="group inline-flex items-center gap-4 text-accent hover:text-primary transition-all duration-300 hover:-translate-x-2"
             >
-              HOME
+              <ArrowLeft size={28} strokeWidth={2.5} className="transition-transform duration-300 group-hover:-translate-x-1" />
+              <div className="flex flex-col">
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Torna Indietro</span>
+                <span className="font-black uppercase tracking-widest text-lg">HOME</span>
+              </div>
             </Link>
           </div>
 

@@ -20,20 +20,20 @@ const LibroSection: React.FC = () => {
 
         {/* Right: Content */}
         <div className="flex flex-col items-start text-left">
-          {/* The Quote */}
-          <div className="mb-8 border-l-4 border-accent pl-6">
-            <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary leading-tight italic">
+          {/* The Quote - Much Larger */}
+          <div className="mb-10 border-l-4 border-accent pl-6">
+            <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-primary leading-tight italic">
               "Una testimonianza generazionale, scritta mentre le cose accadevano."
             </p>
           </div>
 
           {/* Body Text */}
-          <div className="prose prose-lg text-muted-foreground mb-10 leading-relaxed">
-            <p className="mb-6">
+          <div className="prose prose-xl text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl mb-6">
               Questo è il mio primo libro. Duecento pagine che raccontano un'esperienza vissuta in prima persona, 
               ricca di passaggi inattesi, responsabilità precoci e momenti decisivi.
             </p>
-            <p>
+            <p className="text-lg md:text-xl">
               Non è un manuale e non è un racconto celebrativo. È il tentativo di fermare una fase della vita 
               e restituirle senso, raccontando scelte, incontri e difficoltà maturate nel tempo.
             </p>

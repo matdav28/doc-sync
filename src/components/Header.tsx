@@ -44,12 +44,14 @@ const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu }) => {
       
       {submenu && (
         <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-          <div className="bg-background border border-border rounded-xl shadow-2xl py-2 min-w-[280px]">
+          <div className="bg-background border border-border rounded-xl shadow-2xl overflow-hidden min-w-[280px]">
             {submenu.map((item, i) => (
               <Link
                 key={i}
                 to={item.href}
-                className="block px-5 py-3 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                className={`block px-5 py-3 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${
+                  i === 0 ? 'rounded-t-xl' : ''
+                } ${i === submenu.length - 1 ? 'rounded-b-xl' : ''}`}
               >
                 {item.label}
               </Link>
