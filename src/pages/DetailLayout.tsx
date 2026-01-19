@@ -37,12 +37,12 @@ const DetailLayout = () => {
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
           {/* Navigation - Same as Traguardi */}
-          <div className="mb-12">
+          <div className="mb-6">
             <Link 
               to="/" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
             >
-              <span>←</span>
+              <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
               <span className="font-medium">Home</span>
             </Link>
           </div>
