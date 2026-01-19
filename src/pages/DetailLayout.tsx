@@ -35,7 +35,7 @@ const DetailLayout = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
       <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
           {/* Navigation - Same as Traguardi */}
           <div className="mb-12">
             <Link 
