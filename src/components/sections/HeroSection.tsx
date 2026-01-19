@@ -45,8 +45,8 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* LOCAL LOTTIE ANIMATION */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[50px] h-[80px] pointer-events-none opacity-90">
+      {/* LOCAL LOTTIE ANIMATION - SMALLER */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[35px] h-[56px] pointer-events-none opacity-90">
         <Lottie 
           animationData={scrollDownAnimation} 
           loop={true}
