@@ -36,19 +36,14 @@ const DetailLayout = () => {
       <Header />
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
-          {/* Navigation - Exact Traguardi Style Match */}
+          {/* Navigation - Same as Traguardi */}
           <div className="mb-12">
             <Link 
               to="/" 
-              className="flex items-center gap-4 group transition-transform duration-300 hover:-translate-x-2"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
             >
-              <ArrowLeft className="text-accent" size={28} strokeWidth={2.5} />
-              <div>
-                <span className="text-xs text-muted-foreground uppercase tracking-wider block">Torna Indietro</span>
-                <p className="text-accent font-black text-lg uppercase group-hover:text-primary transition-colors">
-                  HOME
-                </p>
-              </div>
+              <span>←</span>
+              <span className="font-medium">Home</span>
             </Link>
           </div>
 
