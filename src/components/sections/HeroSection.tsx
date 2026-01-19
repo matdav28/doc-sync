@@ -1,7 +1,8 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import Lottie from 'lottie-react';
 import matteoHero from '@/assets/matteo-hero.jpeg';
-import scrollDownGif from '@/assets/scroll-down.gif';
+import scrollDownAnimation from '@/assets/scroll-down.json';
 
 const HeroSection: React.FC = () => {
   return (
@@ -44,13 +45,13 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* MOUSE LOTTIE ANIMATION */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[60px] h-[100px] pointer-events-none opacity-80">
-        <iframe 
-          src="https://lottie.host/embed/5bcc71db-16b0-4ddf-bd02-7c2412bb3349/C8yrmBwdBT.lottie" 
-          className="w-full h-full border-none overflow-hidden" 
-          title="Scroll Animation"
-        ></iframe>
+      {/* LOCAL LOTTIE ANIMATION */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[50px] h-[80px] pointer-events-none opacity-90">
+        <Lottie 
+          animationData={scrollDownAnimation} 
+          loop={true}
+          className="w-full h-full"
+        />
       </div>
     </section>
   );
