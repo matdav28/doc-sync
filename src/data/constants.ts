@@ -129,52 +129,76 @@ export const NEWS_DATA: NewsItem[] = [
 
 export const TIMELINE_DATA: TimelineItem[] = [
   {
+    id: "2016-2021-consulta",
+    year: "2016-2021",
+    title: "CONSULTA GIOVANILE COMUNE DI POZZALLO",
+    description: "L'impegno civico nasce dalla partecipazione e dal coinvolgimento diretto dei giovani.",
+    details: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città.",
+    fullContent: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città. All'interno della Consulta ho contribuito a promuovere iniziative volte al coinvolgimento dei giovani, favorendo momenti di aggregazione, confronto e socialità, quali, ad esempio, l'organizzazione di tornei di calcio, pallavolo e competizioni di PlayStation."
+  },
+  {
     id: "2019-rappresentante",
     year: "2019",
     title: "RAPPRESENTANTE D'ISTITUTO",
-    description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare.",
-    details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare. Organizzazione, spazi, assemblee, partecipazione: temi concreti per una scuola viva.",
-    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come luogo di studio, ma come luogo da migliorare. Organizzazione, spazi, assemblee, partecipazione: temi concreti per una scuola viva. È stata la mia prima esperienza di rappresentanza, il momento in cui ho capito che le cose possono cambiare se qualcuno decide di impegnarsi."
+    description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare.",
+    details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare.",
+    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare. Mi sono avvicinato ai temi dell'organizzazione scolastica, della qualità degli spazi, del ruolo delle assemblee e della partecipazione studentesca, concentrandomi su aspetti concreti e quotidiani, fondamentali per rendere la scuola un ambiente vivo e inclusivo. Questa è stata la mia prima esperienza di rappresentanza, il momento in cui ho compreso che il cambiamento è possibile quando qualcuno sceglie di assumersi una responsabilità e di impegnarsi in prima persona per il bene collettivo."
   },
   {
     id: "2020-presidente-cps",
     year: "2020",
     title: "PRESIDENTE CPS RAGUSA",
-    description: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica.",
-    details: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica. Abbiamo gestito l'emergenza, i trasporti e il diritto allo studio in un momento storico senza precedenti.",
-    fullContent: "È stato un incarico vero: riunioni, responsabilità, decisioni, confronto costante con istituzioni e territorio in piena fase pandemica. Abbiamo gestito l'emergenza, i trasporti e il diritto allo studio in un momento storico senza precedenti. Come Presidente della Consulta Provinciale Studentesca di Ragusa ho coordinato le rappresentanze di tutti gli istituti della provincia, portando la voce degli studenti nelle sedi istituzionali."
+    description: "Essere Presidente della Consulta Provinciale degli Studenti della Provincia di Ragusa ha rappresentato per me un incarico vero, concreto e di grande responsabilità.",
+    details: "Essere Presidente della Consulta Provinciale degli Studenti della Provincia di Ragusa ha rappresentato per me un incarico vero, concreto e di grande responsabilità.",
+    fullContent: "Essere Presidente della Consulta Provinciale degli Studenti della Provincia di Ragusa ha rappresentato per me un incarico vero, concreto e di grande responsabilità. Per la prima volta ho avuto l'onore di rappresentare circa 15.000 studenti, venendo eletto all'unanimità in un periodo complesso e delicatissimo, segnato dall'emergenza della pandemia da Covid-19. L'attività della Consulta si è svolta in un contesto senza precedenti, fatto di continue riunioni, decisioni urgenti e confronto costante con le istituzioni e il territorio. Durante l'emergenza ho lavorato a stretto contatto con la Prefettura, contribuendo alla gestione delle criticità legate alla sicurezza, ai trasporti scolastici e alla tutela del diritto allo studio. In qualità di Presidente ho coordinato le rappresentanze di tutti gli istituti scolastici della provincia, portando la voce degli studenti nelle sedi istituzionali e garantendo un dialogo continuo tra scuola, amministrazioni e comunità locali, con l'obiettivo di non lasciare indietro nessuno in uno dei momenti più difficili della nostra storia recente."
   },
   {
     id: "2021-organo-garanzia",
     year: "2021",
     title: "MEMBRO ORGANO DI GARANZIA",
-    description: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia.",
-    details: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia. Un'esperienza istituzionale di alto profilo per garantire equità e rispetto delle norme.",
-    fullContent: "Un ruolo delicato: qui non conta 'apparire', conta la correttezza e la tutela dei diritti nel sistema scolastico USR Sicilia. Un'esperienza istituzionale di alto profilo per garantire equità e rispetto delle norme. L'Organo di Garanzia regionale è il luogo dove si decide in ultima istanza sui ricorsi degli studenti, un'esperienza che mi ha insegnato l'importanza del rigore e dell'imparzialità."
-  },
-  {
-    id: "2022-rappresentante-unibo",
-    year: "Dal 2022",
-    title: "RAPPRESENTANTE UNIBO",
-    description: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole.",
-    details: "Nel Dipartimento di Scienze Giuridiche. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole. Un lavoro quotidiano per migliorare la didattica e i servizi per gli studenti dell'Alma Mater.",
-    fullContent: "Nel Dipartimento di Scienze Giuridiche dell'Università di Bologna. Qui la rappresentanza cambia forma: è più tecnica, legata ai processi e alle regole. Un lavoro quotidiano per migliorare la didattica e i servizi per gli studenti dell'Alma Mater. Partecipo ai consigli di dipartimento, alle commissioni paritetiche e ai tavoli di confronto con i docenti per portare avanti le istanze degli studenti."
+    description: "Sono stato nominato dal Dirigente Generale dell'USR Sicilia come Componente dell'Organo di Garanzia Regionale.",
+    details: "Un incarico di particolare responsabilità in cui non conta apparire, ma garantire correttezza, imparzialità e tutela dei diritti nel sistema scolastico.",
+    fullContent: "Sono stato nominato dal Dirigente Generale dell'USR Sicilia come Componente dell'Organo di Garanzia Regionale, un incarico di particolare responsabilità in cui non conta apparire, ma garantire correttezza, imparzialità e tutela dei diritti nel sistema scolastico. L'Organo di Garanzia Regionale è chiamato a pronunciarsi in ultima istanza sui ricorsi presentati dagli studenti, valutando situazioni spesso complesse nel pieno rispetto delle norme e delle procedure. In questo contesto ho maturato una forte consapevolezza dell'importanza del rigore istituzionale, dell'equilibrio nelle decisioni e del rispetto delle regole come fondamento della credibilità delle istituzioni. È stata un'esperienza di alto profilo istituzionale e formativo, che mi ha insegnato il valore dell'imparzialità e della responsabilità nel tutelare i diritti, soprattutto quando si tratta di garantire equità e giustizia all'interno della scuola."
   },
   {
     id: "2022-segretario-gd",
     year: "2022",
     title: "SEGRETARIO GD RAGUSA",
-    description: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani.",
-    details: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani. Abbiamo ricostruito una comunità politica partendo dai territori e dai bisogni della nostra generazione.",
-    fullContent: "Una scelta di campo. Credo nella politica come costruzione collettiva, responsabilità e scuola di futuro per i giovani. Abbiamo ricostruito una comunità politica partendo dai territori e dai bisogni della nostra generazione. Come Segretario dei Giovani Democratici della provincia di Ragusa ho lavorato per costruire una rete di giovani impegnati, organizzando eventi, dibattiti e momenti di formazione politica."
+    description: "Una scelta di campo. Credo nella politica come costruzione collettiva, assunzione di responsabilità e scuola di futuro per le nuove generazioni.",
+    details: "Quando ho iniziato questo percorso, i Giovani Democratici in provincia di Ragusa non erano presenti come organizzazione strutturata.",
+    fullContent: "Una scelta di campo. Credo nella politica come costruzione collettiva, assunzione di responsabilità e scuola di futuro per le nuove generazioni. Quando ho iniziato questo percorso, i Giovani Democratici in provincia di Ragusa non erano presenti come organizzazione strutturata. Su proposta dell'On. Nello Dipasquale, ho promosso e fondato i Giovani Democratici della provincia di Ragusa, avviando un lavoro di ricostruzione politica e organizzativa partendo dai territori e dai bisogni reali della nostra generazione. Abbiamo costituito tre circoli intercomunali Ragusa, Modica e Vittoria dotandoli di uno Statuto e di regole condivise, fondamentali per garantire democrazia interna, partecipazione e continuità. In qualità di Segretario provinciale, ho lavorato per costruire una rete di giovani impegnati, organizzando eventi pubblici, dibattiti e momenti di formazione politica, con l'obiettivo di restituire ai giovani uno spazio di confronto, proposta e protagonismo. Un'esperienza che ha dimostrato come la politica, quando nasce dal basso e dai territori, possa tornare a essere uno strumento credibile di partecipazione e cambiamento."
+  },
+  {
+    id: "2022-rappresentante-unibo",
+    year: "Dal 2022",
+    title: "RAPPRESENTANTE UNIBO",
+    description: "Sono arrivato all'Università di Bologna come matricola e, fin dai primi mesi, sono stato candidato a rappresentare gli studenti del Dipartimento di Scienze Giuridiche.",
+    details: "Un segno di fiducia che ho accolto con grande senso di responsabilità. Alle elezioni sono risultato la matricola più votata.",
+    fullContent: "Sono arrivato all'Università di Bologna come matricola e, fin dai primi mesi, sono stato candidato a rappresentare gli studenti del Dipartimento di Scienze Giuridiche, un segno di fiducia che ho accolto con grande senso di responsabilità. Alle elezioni sono risultato la matricola più votata e il terzo candidato più votato dell'intero Dipartimento, confermando l'importanza di una rappresentanza credibile e radicata tra gli studenti. In questo contesto la rappresentanza assume una forma diversa: è più tecnica, legata ai processi, ai regolamenti e al funzionamento dell'istituzione universitaria. Un lavoro quotidiano e spesso silenzioso, finalizzato a migliorare la qualità della didattica e dei servizi offerti agli studenti dell'Alma Mater. Ho partecipato ai Consigli di Dipartimento, alle Commissioni paritetiche docenti-studenti e ai tavoli di confronto con il corpo docente, portando avanti le istanze degli studenti con spirito costruttivo, competenza e attenzione alle regole, nella convinzione che una buona università si costruisca anche attraverso una rappresentanza seria e preparata."
+  },
+  {
+    id: "2024-presidente-seggio",
+    year: "2024-2025",
+    title: "PRESIDENTE DI SEGGIO",
+    description: "Al servizio della democrazia e della correttezza del processo di voto, con il compito di garantire trasparenza, legalità e rispetto del voto di ogni cittadino.",
+    details: "Sono stato nominato Presidente di seggio elettorale dalla Corte di Appello di Catania per la prima volta nel 2024.",
+    fullContent: "Al servizio della democrazia e della correttezza del processo di voto, con il compito di garantire trasparenza, legalità e rispetto del voto di ogni cittadino. Sono stato nominato Presidente di seggio elettorale dalla Corte di Appello di Catania per la prima volta nel 2024, in occasione delle elezioni del Parlamento Europeo. Nel 2025 ho nuovamente ricoperto questo ruolo per lo svolgimento dei cinque quesiti referendari, garantendo il corretto e trasparente svolgimento delle operazioni di voto."
+  },
+  {
+    id: "2025-summer-school",
+    year: "2025",
+    title: "SUMMER SCHOOL UE",
+    description: "Un'occasione formativa e di confronto nel cuore delle Istituzioni europee.",
+    details: "Nel 2025 ho partecipato alla Summer School 'Tutta un'altra Europa', tenutasi presso il Parlamento Europeo a Bruxelles.",
+    fullContent: "Un'occasione formativa e di confronto nel cuore delle Istituzioni europee. Nel 2025 ho partecipato alla Summer School 'Tutta un'altra Europa', tenutasi presso il Parlamento Europeo a Bruxelles, come rappresentante dei Giovani Democratici della Provincia di Ragusa. Questa esperienza di tre giorni di formazione, dialogo politico e approfondimento istituzionale ha offerto l'opportunità di confrontarsi con giovani dirigenti e attivisti provenienti da tutta Italia all'interno di un contesto europeo. L'iniziativa si è svolta nel quadro di momenti di studio e confronto dedicati alle sfide contemporanee dell'Unione Europea e alle prospettive future per i giovani nel progetto comunitario."
   },
   {
     id: "2025-segreteria-regionale",
     year: "2025",
     title: "SEGRETERIA REGIONALE GD",
-    description: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici.",
-    details: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici. Un impegno che si allarga a livello regionale e nazionale per portare la voce della Sicilia ai tavoli che contano.",
-    fullContent: "Tesoriere e Delegato al Tesseramento per GD Sicilia. Membro dell'Assemblea Nazionale dei Giovani Democratici. Un impegno che si allarga a livello regionale e nazionale per portare la voce della Sicilia ai tavoli che contano. Oggi lavoro per costruire una rete regionale solida, capace di dialogare con il territorio e di incidere nelle scelte del partito a livello nazionale."
+    description: "Sono stato nominato da Marco Greco alla fine del 2025 come Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia.",
+    details: "Un incarico che amplia il mio impegno politico a livello regionale e nazionale.",
+    fullContent: "Sono stato nominato da Marco Greco alla fine del 2025 come Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia, assumendo un incarico che amplia il mio impegno politico a livello regionale e nazionale. Questo ruolo comporta una responsabilità organizzativa e politica fondamentale: lavorare per costruire una rete regionale solida, trasparente e radicata nei territori, capace di dialogare con le realtà locali e di rafforzare la partecipazione dei giovani alla vita del partito. In qualità di Membro dell'Assemblea Nazionale dei Giovani Democratici, porto la voce della Sicilia ai tavoli di confronto nazionali, contribuendo al dibattito politico e alle scelte strategiche dell'organizzazione, con l'obiettivo di rendere i giovani protagonisti e incidere concretamente nelle decisioni del Partito Democratico."
   }
 ];
 
@@ -183,14 +207,14 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     title: "EURONESS",
     category: "Progetto",
     description: "Risparmiare, trarre vantaggio, fare del bene.",
-    fullText: "Un progetto nato per trasformare il risparmio in uno strumento di solidarietà. Attraverso Euroness, cerchiamo di creare un modello economico circolare che permetta ai cittadini di trarre vantaggi diretti dalle loro scelte di consumo, reinvestendo una parte del valore generato in progetti di utilità sociale per il territorio.",
+    fullText: "Euroness nasce come un'idea sviluppata in ambito scolastico, con l'obiettivo di promuovere il risparmio e sostenere la realizzazione di progetti per la comunità scolastica. Nel tempo il progetto si è evoluto, trovando oggi applicazione anche nel campo della numismatica, come forma di collezione consapevole e valorizzazione del risparmio. Alla base di Euroness c'è l'idea di trasformare il risparmio in uno strumento di solidarietà. Il progetto mira a costruire un modello economico circolare, capace di generare benefici diretti per i cittadini a partire dalle loro scelte di consumo, reinvestendo una parte del valore prodotto in iniziative di utilità sociale per il territorio. Un'esperienza che unisce educazione economica, responsabilità sociale e attenzione alla comunità, dimostrando come anche piccoli gesti possano contribuire a creare valore condiviso.",
     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   "greenaction": {
     title: "GREENACTION",
     category: "Progetto",
     description: "La raccolta differenziata come esercizio di cittadinanza.",
-    fullText: "Imparare a differenziare per imparare a scegliere. GreenAction non è solo una campagna ecologica, ma un percorso di educazione civica. Abbiamo coinvolto le scuole e i quartieri in attività pratiche per dimostrare che la cura dell'ambiente inizia dalle piccole scelte quotidiane.",
+    fullText: "GreenAction è un progetto nato con l'obiettivo di introdurre e rafforzare la raccolta differenziata nelle scuole, partendo dall'educazione ambientale come strumento di crescita civica. Attraverso un approccio pratico e partecipato, abbiamo coinvolto studenti, scuole e quartieri in un percorso di sensibilizzazione concreto e quotidiano. Nel corso dell'iniziativa sono stati raccolti migliaia di tappi di plastica, dimostrando come anche gesti semplici possano generare un impatto reale se condivisi da una comunità consapevole. GreenAction non è stata solo una campagna ecologica, ma un vero e proprio percorso di educazione civica, pensato per trasmettere l'idea che la tutela dell'ambiente nasce dalle scelte di ogni giorno e dalla responsabilità collettiva verso il territorio.",
     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
   },
   "enigma-lab": {

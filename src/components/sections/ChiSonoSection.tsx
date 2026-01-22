@@ -16,16 +16,10 @@ const ChiSonoSection: React.FC = () => {
           </div>
           <div className="prose prose-xl text-muted-foreground leading-relaxed">
             <p className="mb-6 text-lg md:text-xl">
-              Mi chiamo Matteo Migliore. Sono nato a Pozzallo, in provincia di Ragusa, nel 2002. 
-              Ho iniziato il mio percorso di impegno civico dalla scuola, come rappresentante d'istituto.
-            </p>
-            <p className="mb-6 text-lg md:text-xl">
-              Da lì è nato tutto: la voglia di migliorare le cose, di partecipare alle decisioni, 
-              di essere parte attiva della comunità. Non come spettatore, ma come costruttore.
+              Non come spettatore passivo, ma come costruttore. Ho iniziato il mio percorso di impegno civico dalla scuola, come Rappresentante di Istituto.
             </p>
             <p className="text-lg md:text-xl">
-              Oggi studio Giurisprudenza all'Università di Bologna e continuo il mio impegno 
-              nella rappresentanza studentesca e nella politica giovanile.
+              Da lì è nato tutto: la voglia di migliorare le cose, di partecipare alle decisioni, di essere parte attiva della comunità.
             </p>
           </div>
         </div>
@@ -69,12 +63,10 @@ const ChiSonoSection: React.FC = () => {
           </div>
           <div className="prose prose-xl text-muted-foreground leading-relaxed">
             <p className="mb-6 text-lg md:text-xl">
-              Ho frequentato il Liceo Scientifico "Giorgio La Pira" di Pozzallo, dove sono stato 
-              eletto rappresentante d'istituto nell'anno scolastico 2019-2020.
+              Ho frequentato l'Università di Bologna dove sono stato, per tre anni, Rappresentante degli Studenti nel Dipartimento di Scienze Giuridiche.
             </p>
             <p className="text-lg md:text-xl">
-              Attualmente frequento la Facoltà di Giurisprudenza presso l'Alma Mater Studiorum - 
-              Università di Bologna, dove sono rappresentante nel Dipartimento di Scienze Giuridiche.
+              Un percorso che ha unito lo studio accademico alla pratica della rappresentanza attiva.
             </p>
           </div>
         </div>
@@ -87,17 +79,15 @@ const ChiSonoSection: React.FC = () => {
           <div className="mb-8">
             <span className="text-accent/20 font-black text-8xl leading-none block mb-[-40px] select-none">03</span>
             <h3 className="text-primary font-black text-4xl md:text-5xl uppercase mb-6 relative">
-              LA POLITICA REALE
+              POLITICA REALE
             </h3>
           </div>
           <div className="prose prose-xl text-muted-foreground leading-relaxed">
             <p className="mb-6 text-lg md:text-xl">
-              Nel 2022 ho scelto di entrare nei Giovani Democratici, il movimento giovanile del 
-              Partito Democratico. Una scelta di campo, convinta e consapevole.
+              Segretario Provinciale dei Giovani Dem. della Provincia di Ragusa. Una scelta di campo, convinta e consapevole.
             </p>
             <p className="text-lg md:text-xl">
-              Sono stato Segretario dei GD Ragusa dal 2022 al 2025 e oggi ricopro il ruolo di 
-              Tesoriere e Delegato al Tesseramento nella Segreteria Regionale GD Sicilia.
+              Oggi ricopro il ruolo di Tesoriere e Delegato al Tesseramento nella Segreteria Regionale GD Sicilia.
             </p>
           </div>
         </div>
@@ -141,14 +131,10 @@ const ChiSonoSection: React.FC = () => {
           </div>
           <div className="prose prose-xl text-muted-foreground leading-relaxed">
             <p className="mb-6 text-lg md:text-xl">
-              Terminata l'esperienza scolastica, ho scelto di continuare il mio impegno anche 
-              all'università, entrando negli organi di rappresentanza del Dipartimento di 
-              Scienze Giuridiche dell'Università di Bologna.
+              Terminata l'esperienza scolastica, ho scelto di continuare il mio impegno nelle Istituzioni.
             </p>
             <p className="text-lg md:text-xl">
-              Essere rappresentante significa studiare, confrontarsi, proporre soluzioni. 
-              È un lavoro spesso silenzioso, ma essenziale per rendere le istituzioni più 
-              giuste e accessibili.
+              Essere rappresentante significa ascoltare, confrontarsi, proporre soluzioni. È un lavoro spesso silenzioso, ma essenziale per rendere le istituzioni più giuste e accessibili.
             </p>
           </div>
         </div>
