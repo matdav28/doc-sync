@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         
 
         <div className="flex flex-col space-y-8">
-          <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">SOCIAL MEDIA</h4>
+          <h4 className="font-display font-medium text-[10px] text-blue-300 tracking-widest uppercase">SOCIAL MEDIA</h4>
           <div className="flex space-x-10">
             <a href="https://www.facebook.com/matteo.migliore.12" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" aria-label="Facebook">
               <Facebook size={32} strokeWidth={1.5} />

@@ -134,7 +134,9 @@
   }
 
   .nav-link {
-    @apply font-extrabold uppercase text-xs tracking-[0.15em];
+    font-family: 'Union Gothic', system-ui, sans-serif;
+    font-weight: 500;
+    @apply uppercase text-xs tracking-[0.15em];
   }
 
   .section-title {
