@@ -60,6 +60,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Union Gothic', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
