@@ -5,6 +5,15 @@
 /* Design System - Matteo Migliore */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+/* Union Gothic Variable Font for Titles */
+@font-face {
+  font-family: 'Union Gothic';
+  src: url('/fonts/union_gothic-variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -101,11 +110,15 @@
 
 @layer components {
   .heading-stampatello {
-    @apply uppercase tracking-tight font-black;
+    font-family: 'Union Gothic', system-ui, sans-serif;
+    font-weight: 500;
+    @apply uppercase tracking-tight;
   }
 
   .heading-transition {
-    @apply font-black uppercase leading-none tracking-tight;
+    font-family: 'Union Gothic', system-ui, sans-serif;
+    font-weight: 500;
+    @apply uppercase leading-none tracking-tight;
   }
 
   .btn-brand {
