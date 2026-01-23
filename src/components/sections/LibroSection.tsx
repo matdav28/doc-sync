@@ -41,7 +41,7 @@ const LibroSection: React.FC = () => {
 
           {/* Amazon Button */}
           <a 
-            href="https://www.amazon.it/dp/B0F4HMP67Y" 
+            href="https://amzn.eu/d/1FZlJfp" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-full font-black uppercase text-base hover:bg-accent hover:text-accent-foreground transition-all duration-300 active:scale-95 group"
