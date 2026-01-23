@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
         <div className="flex flex-col">
           <img 
-            src="/assets/logo-matteo.png" 
+            src="/logo-matteo.png" 
             alt="Matteo Migliore" 
             className="w-48 md:w-80 h-auto object-contain" 
           />
