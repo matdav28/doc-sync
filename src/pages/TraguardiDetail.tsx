@@ -78,6 +78,9 @@ const TraguardiDetail: React.FC = () => {
     );
   }
 
+  // Verifica se esiste una galleria per questo elemento
+  const hasGallery = data.gallery && data.gallery.length > 0;
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -116,38 +119,45 @@ const TraguardiDetail: React.FC = () => {
               </p>
             </div>
 
-            {/* GALLERY COLUMN */}
-            <div className="space-y-6">
-              {/* Main Image Placeholder */}
-              <div className="aspect-video bg-muted/30 border border-border rounded-2xl flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <ImageIcon size={48} className="mx-auto mb-2 opacity-50" />
-                  <p className="text-sm">FOTO PRINCIPALE</p>
+            {/* GALLERY COLUMN - Mostra solo se ci sono foto */}
+            {hasGallery && (
+              <div className="space-y-6">
+                {/* Main Image - Prende la prima foto */}
+                <div className="aspect-video bg-muted/30 border border-border rounded-2xl overflow-hidden shadow-sm">
+                  <img 
+                    src={data.gallery![0]} 
+                    alt="Foto principale" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
-              
-              {/* Mini Carousel */}
-              <div className="relative">
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Gallery</p>
-                </div>
-                <Carousel className="w-full">
-                  <CarouselContent className="-ml-2">
-                    {[1, 2, 3].map((_, i) => (
-                      <CarouselItem key={i} className="pl-2 basis-1/3">
-                        <div className="aspect-square bg-muted/30 border border-border rounded-xl flex items-center justify-center">
-                          <span className="text-xs text-muted-foreground">FOTO {i + 1}</span>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <div className="absolute -top-8 right-0 flex gap-2">
-                    <CarouselPrevious className="static translate-y-0 h-7 w-7" />
-                    <CarouselNext className="static translate-y-0 h-7 w-7" />
+                
+                {/* Mini Carousel */}
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Gallery</p>
                   </div>
-                </Carousel>
+                  <Carousel className="w-full">
+                    <CarouselContent className="-ml-2">
+                      {data.gallery!.map((src, i) => (
+                        <CarouselItem key={i} className="pl-2 basis-1/3">
+                          <div className="aspect-square bg-muted/30 border border-border rounded-xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                            <img 
+                              src={src} 
+                              alt={`Foto ${i + 1}`} 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="absolute -top-8 right-0 flex gap-2">
+                      <CarouselPrevious className="static translate-y-0 h-7 w-7" />
+                      <CarouselNext className="static translate-y-0 h-7 w-7" />
+                    </div>
+                  </Carousel>
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* NAVIGATION ARROWS - Minimalist Red */}
