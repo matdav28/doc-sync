@@ -19,10 +19,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        // Inter per il testo normale
         sans: ["Inter", "sans-serif"],
-        // Union Gothic per i titoli
-        heading: ["Union Gothic", "sans-serif"],
+        // Aggiungiamo 'gothic' collegato al font Union Gothic
+        gothic: ["Union Gothic", "sans-serif"], 
       },
       colors: {
         border: "hsl(var(--border))",
@@ -31,8 +30,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#0c2788", // Blu Matteo
+          foreground: "#ffffff",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -43,12 +42,12 @@ export default {
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "#f3f4f6",
+          foreground: "#6b7280",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#e30613", // Rosso Matteo
+          foreground: "#ffffff",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

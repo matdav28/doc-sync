@@ -1,198 +1,110 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { NAV_MENU } from '@/data/constants';
-import { ChevronDown, Menu, X } from 'lucide-react';
-
-interface NavItemProps {
-  title: string;
-  anchor: string;
-  submenu?: { label: string; href: string }[];
-}
-
-const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHomePage = location.pathname === '/';
-  
-  const handleMainClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (isHomePage) {
-      const element = document.querySelector(anchor);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(anchor);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-  };
-
-  return (
-    <div className="relative group">
-      <button
-        onClick={handleMainClick}
-        className="flex items-center gap-1 text-primary-foreground hover:text-accent transition-colors font-display font-medium text-sm uppercase tracking-wide py-2"
-      >
-        {title}
-        {submenu && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
-      </button>
-      
-      {submenu && (
-        <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-          <div className="bg-background border border-border rounded-xl shadow-2xl overflow-hidden min-w-[280px]">
-            {submenu.map((item, i) => (
-              <Link
-                key={i}
-                to={item.href}
-                className={`block px-5 py-3 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${
-                  i === 0 ? 'rounded-t-xl' : ''
-                } ${i === submenu.length - 1 ? 'rounded-b-xl' : ''}`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+import { Menu, X } from 'lucide-react';
+import { NAV_ITEMS } from '@/data/constants';
+import NavLink from './NavLink';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
+    setIsMobileMenuOpen(false);
   }, [location]);
 
-  const handleMobileNavClick = (anchor: string) => {
-    const isHomePage = location.pathname === '/';
-    if (isHomePage) {
-      const element = document.querySelector(anchor);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(anchor);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-    setMobileMenuOpen(false);
-  };
-
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-primary'}`}>
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-        <div className="flex h-20 md:h-24 items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="font-display text-xl md:text-2xl text-primary-foreground font-medium tracking-tight uppercase">
-              MATTEO MIGLIORE
-            </span>
-          </Link>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled || !isHome ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex justify-between items-center">
+        
+        {/* LOGO: MATTEO (900) MIGLIORE (400) */}
+        <Link to="/" className="relative z-50 group">
+          <div className={`flex items-center gap-2 text-2xl uppercase tracking-wider font-gothic transition-colors duration-300 ${
+            (isScrolled || !isHome || isMobileMenuOpen) ? 'text-primary' : 'text-white'
+          }`}>
+            <span className="font-black">MATTEO</span>
+            <span className="font-normal">MIGLIORE</span>
+          </div>
+        </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <NavItem title="HOME" anchor="#home" />
-            <NavItem title="CHI SONO" anchor="#chi-sono" />
-            <NavItem title="I TRAGUARDI" anchor="#traguardi" submenu={NAV_MENU.traguardi} />
-            <NavItem title="PROGETTI" anchor="#progetti" submenu={NAV_MENU.progetti} />
-            <NavItem title="SALA STAMPA" anchor="#sala-stampa" />
-            <NavItem title="LIBRO" anchor="#libro" />
-            <NavItem title="SERVIZIO CIVILE" anchor="#servizio-civile" submenu={NAV_MENU.servizio} />
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-primary-foreground p-2"
-            aria-label="Toggle menu"
+        {/* DESKTOP MENU - Font Gothic applicato */}
+        <nav className="hidden lg:flex items-center space-x-8">
+          {NAV_ITEMS.map((item) => (
+            <NavLink 
+              key={item.label} 
+              href={item.href} 
+              label={item.label}
+              isScrolled={isScrolled || !isHome}
+              className="font-gothic text-lg font-medium tracking-wide"
+            />
+          ))}
+          
+          <a 
+            href="https://chat.whatsapp.com/GZ3qk2h03DjCY0tuczRWCv" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`px-6 py-2 rounded-full font-gothic font-bold transition-all transform hover:scale-105 ${
+              isScrolled || !isHome
+                ? 'bg-primary text-white hover:bg-primary/90' 
+                : 'bg-white text-primary hover:bg-white/90'
+            }`}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+            PARTECIPA
+          </a>
+        </nav>
+
+        {/* MOBILE MENU TOGGLE */}
+        <button 
+          className="lg:hidden relative z-50 p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <X className="text-primary" size={32} />
+          ) : (
+            <Menu className={(isScrolled || !isHome) ? 'text-primary' : 'text-white'} size={32} />
+          )}
+        </button>
+
+        {/* MOBILE MENU OVERLAY */}
+        <div className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-transform duration-300 lg:hidden ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+          <nav className="flex flex-col items-center space-y-8">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.label}
+                href={isHome ? item.href : `/${item.href}`}
+                className="text-3xl font-gothic font-bold text-primary hover:text-accent transition-colors uppercase tracking-widest"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <a 
+              href="https://chat.whatsapp.com/GZ3qk2h03DjCY0tuczRWCv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 px-8 py-3 bg-accent text-white rounded-full text-xl font-gothic font-bold hover:bg-accent/90 transition-colors"
+            >
+              PARTECIPA
+            </a>
+          </nav>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 max-h-[80vh] overflow-y-auto">
-          <div className="px-6 py-6 flex flex-col space-y-2">
-            <button onClick={() => handleMobileNavClick('#home')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
-              HOME
-            </button>
-            <button onClick={() => handleMobileNavClick('#chi-sono')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
-              CHI SONO
-            </button>
-            
-            {/* Traguardi with submenu */}
-            <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#traguardi')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
-                I TRAGUARDI
-              </button>
-              <div className="pl-4 pb-3 space-y-2">
-                {NAV_MENU.traguardi.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Progetti with submenu */}
-            <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#progetti')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
-                PROGETTI
-              </button>
-              <div className="pl-4 pb-3 space-y-2">
-                {NAV_MENU.progetti.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <button onClick={() => handleMobileNavClick('#sala-stampa')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
-              SALA STAMPA
-            </button>
-            <button onClick={() => handleMobileNavClick('#libro')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
-              LIBRO
-            </button>
-
-            {/* Servizio Civile with submenu */}
-            <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#servizio-civile')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
-                SERVIZIO CIVILE
-              </button>
-              <div className="pl-4 pb-3 space-y-2">
-                {NAV_MENU.servizio.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 };

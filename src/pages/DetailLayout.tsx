@@ -17,10 +17,9 @@ const DetailLayout = () => {
   const { id } = useParams();
   const data = PROJECTS_DATA[id as keyof typeof PROJECTS_DATA];
   
-  // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // EFFETTO: Quando cambia l'ID (cambio pagina), torna in cima e resetta eventuali stati
+  // Reset scroll e state quando cambia pagina
   useEffect(() => {
     window.scrollTo(0, 0);
     setSelectedImage(null);
@@ -41,13 +40,12 @@ const DetailLayout = () => {
     );
   }
 
-  // LOGICA IMMAGINI
+  // Logica Immagini: 1^ Grande, restanti nel carosello
   const allImages = data.gallery || [];
   const mainImage = allImages.length > 0 ? allImages[0] : null;
-  // Le immagini del carosello sono TUTTE tranne la prima
   const carouselImages = allImages.length > 1 ? allImages.slice(1) : [];
 
-  // NAVIGAZIONE LIGHTBOX
+  // Navigazione Lightbox
   const handleNext = useCallback(() => {
     if (!selectedImage || allImages.length === 0) return;
     const currentIdx = allImages.indexOf(selectedImage);
@@ -62,7 +60,7 @@ const DetailLayout = () => {
     setSelectedImage(allImages[prevIdx]);
   }, [selectedImage, allImages]);
 
-  // Supporto tastiera
+  // Tastiera
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedImage) return;
@@ -81,7 +79,6 @@ const DetailLayout = () => {
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
           
-          {/* Tasto Indietro */}
           <div className="mb-6">
             <Link 
               to="/" 
@@ -92,7 +89,6 @@ const DetailLayout = () => {
             </Link>
           </div>
 
-          {/* Intestazione */}
           <div className="mb-12">
             <span className="text-accent font-bold uppercase tracking-wider text-sm mb-4 block">
               {data.category}
@@ -103,20 +99,19 @@ const DetailLayout = () => {
             <div className="w-24 h-1.5 bg-accent"></div>
           </div>
 
-          {/* GRIGLIA CONTENUTO (Testo a SX, Foto a DX) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-20">
             
-            {/* COLONNA SINISTRA: Testo */}
+            {/* Colonna Testo */}
             <div>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed whitespace-pre-line">
                 {data.fullText}
               </p>
             </div>
             
-            {/* COLONNA DESTRA: Immagini (Main + Gallery) */}
+            {/* Colonna Immagini (Main + Gallery) */}
             <div className="space-y-6">
               
-              {/* 1. FOTO PRINCIPALE */}
+              {/* Foto Principale */}
               {mainImage ? (
                 <div 
                   className="bg-muted rounded-2xl aspect-video flex items-center justify-center border border-border overflow-hidden shadow-sm relative group cursor-pointer"
@@ -139,13 +134,12 @@ const DetailLayout = () => {
                 </div>
               )}
 
-              {/* 2. GALLERIA (Subito sotto la foto principale) */}
+              {/* Galleria (Carosello) sotto la foto principale */}
               {carouselImages.length > 0 && (
                 <div className="relative">
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Altre Foto</p>
                   </div>
-                  {/* AGGIUNTO key={id} QUI SOTTO: Reset carosello al cambio pagina */}
                   <Carousel key={id} className="w-full">
                     <CarouselContent className="-ml-2">
                       {carouselImages.map((src, index) => (
@@ -182,7 +176,7 @@ const DetailLayout = () => {
       
       <Footer />
 
-      {/* LIGHTBOX */}
+      {/* Lightbox Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
           
