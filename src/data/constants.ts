@@ -248,7 +248,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
   {
     id: "2025-summer-school",
     year: "2025",
-    title: "SUMMER SCHOOL UE",
+    title: "SUMMER SCHOOL \n UE",
     description: "Un'occasione formativa e di confronto nel cuore delle Istituzioni europee.",
     details: "Nel 2025 ho partecipato alla Summer School 'Tutta un'altra Europa', tenutasi presso il Parlamento Europeo a Bruxelles.",
     fullContent: "Un'occasione formativa e di confronto nel cuore delle Istituzioni europee. Nel 2025 ho partecipato alla Summer School 'Tutta un'altra Europa', tenutasi presso il Parlamento Europeo a Bruxelles, come rappresentante dei Giovani Democratici della Provincia di Ragusa. \n\n\ Questa esperienza di tre giorni di formazione, dialogo politico e approfondimento istituzionale ha offerto l'opportunità di confrontarsi con giovani dirigenti e attivisti provenienti da tutta Italia all'interno di un contesto europeo. \n\n\ L'iniziativa si è svolta nel quadro di momenti di studio e confronto dedicati alle sfide contemporanee dell'Unione Europea e alle prospettive future per i giovani nel progetto comunitario.",
@@ -265,7 +265,26 @@ export const TIMELINE_DATA: TimelineItem[] = [
     title: "SEGRETERIA REGIONALE GD",
     description: "Sono stato nominato da Marco Greco alla fine del 2025 come Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia.",
     details: "Un incarico che amplia il mio impegno politico a livello regionale e nazionale.",
-    fullContent: "Sono stato nominato da Marco Greco alla fine del 2025 come Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia, assumendo un incarico che amplia il mio impegno politico a livello regionale e nazionale. \n\n\ Questo ruolo comporta una responsabilità organizzativa e politica fondamentale: lavorare per costruire una rete regionale solida, trasparente e radicata nei territori, capace di dialogare con le realtà locali e di rafforzare la partecipazione dei giovani alla vita del partito. \n\n\ In qualità di Membro dell'Assemblea Nazionale dei Giovani Democratici, porto la voce della Sicilia ai tavoli di confronto nazionali, contribuendo al dibattito politico e alle scelte strategiche dell'organizzazione, con l'obiettivo di rendere i giovani protagonisti e incidere concretamente nelle decisioni del Partito Democratico."
+    fullContent: "Sono stato nominato da Marco Greco alla fine del 2025 come Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia, assumendo un incarico che amplia il mio impegno politico a livello regionale e nazionale. \n\n\ Questo ruolo comporta una responsabilità organizzativa e politica fondamentale: lavorare per costruire una rete regionale solida, trasparente e radicata nei territori, capace di dialogare con le realtà locali e di rafforzare la partecipazione dei giovani alla vita del partito. \n\n\ In qualità di Membro dell'Assemblea Nazionale dei Giovani Democratici, porto la voce della Sicilia ai tavoli di confronto nazionali, contribuendo al dibattito politico e alle scelte strategiche dell'organizzazione, con l'obiettivo di rendere i giovani protagonisti e incidere concretamente nelle decisioni del Partito Democratico.",
+  gallery: [
+      "/gallery/gd/gd-4.webp",
+      "/gallery/gd/gd-0.webp",
+      "/gallery/gd/gd-1.jpeg",
+      "/gallery/gd/gd-2.webp",
+      "/gallery/gd/gd-5.webp",
+      "/gallery/gd/gd-7.jpeg",
+      "/gallery/gd/gd-8.webp",
+      "/gallery/gd/gd-9.webp",
+      "/gallery/gd/gd-10.jpeg",
+      "/gallery/gd/gd-11.webp",
+      "/gallery/gd/gd-12.jpeg",
+      "/gallery/gd/gd-13.webp",
+      "/gallery/gd/gd-14.webp",
+      "/gallery/gd/gd-15.webp",
+      "/gallery/gd/gd-16.webp",
+      "/gallery/gd/gd-17.webp",
+      "/gallery/gd/gd-18.webp",
+    ]
   }
 ];
 
@@ -274,7 +293,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     title: "EURONESS",
     category: "Progetto",
     description: "Risparmiare, trarre vantaggio, fare del bene.",
-    fullText: "Euroness nasce come un'idea sviluppata in ambito scolastico, con l'obiettivo di promuovere il risparmio e sostenere la realizzazione di progetti per la comunità scolastica. Nel tempo il progetto si è evoluto, trovando oggi applicazione anche nel campo della numismatica, come forma di collezione consapevole e valorizzazione del risparmio. Alla base di Euroness c'è l'idea di trasformare il risparmio in uno strumento di solidarietà. Il progetto mira a costruire un modello economico circolare, capace di generare benefici diretti per i cittadini a partire dalle loro scelte di consumo, reinvestendo una parte del valore prodotto in iniziative di utilità sociale per il territorio. Un'esperienza che unisce educazione economica, responsabilità sociale e attenzione alla comunità, dimostrando come anche piccoli gesti possano contribuire a creare valore condiviso.",
+    fullText: "Euroness nasce come un'idea sviluppata in ambito scolastico, con l'obiettivo di promuovere il risparmio e sostenere la realizzazione di progetti per la comunità scolastica. \n\n\ Nel tempo il progetto si è evoluto, trovando oggi applicazione anche nel campo della numismatica, come forma di collezione consapevole e valorizzazione del risparmio. \n\n\ Alla base di Euroness c'è l'idea di trasformare il risparmio in uno strumento di solidarietà. Il progetto mira a costruire un modello economico circolare, capace di generare benefici diretti per i cittadini a partire dalle loro scelte di consumo, reinvestendo una parte del valore prodotto in iniziative di utilità sociale per il territorio. \n\n\ Un'esperienza che unisce educazione economica, responsabilità sociale e attenzione alla comunità, dimostrando come anche piccoli gesti possano contribuire a creare valore condiviso.",
     gallery: [
       "/gallery/euroness/eu-0.webp",
       "/gallery/euroness/eu-1.webp",
@@ -289,7 +308,7 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     title: "GREENACTION",
     category: "Progetto",
     description: "La raccolta differenziata come esercizio di cittadinanza.",
-    fullText: "GreenAction è un progetto nato con l'obiettivo di introdurre e rafforzare la raccolta differenziata nelle scuole, partendo dall'educazione ambientale come strumento di crescita civica. Attraverso un approccio pratico e partecipato, abbiamo coinvolto studenti, scuole e quartieri in un percorso di sensibilizzazione concreto e quotidiano. Nel corso dell'iniziativa sono stati raccolti migliaia di tappi di plastica, dimostrando come anche gesti semplici possano generare un impatto reale se condivisi da una comunità consapevole. GreenAction non è stata solo una campagna ecologica, ma un vero e proprio percorso di educazione civica, pensato per trasmettere l'idea che la tutela dell'ambiente nasce dalle scelte di ogni giorno e dalla responsabilità collettiva verso il territorio.",
+    fullText: "GreenAction è un progetto nato con l'obiettivo di introdurre e rafforzare la raccolta differenziata nelle scuole, partendo dall'educazione ambientale come strumento di crescita civica. \n\n\ Attraverso un approccio pratico e partecipato, abbiamo coinvolto studenti, scuole e quartieri in un percorso di sensibilizzazione concreto e quotidiano. \n\n\ Nel corso dell'iniziativa sono stati raccolti migliaia di tappi di plastica, dimostrando come anche gesti semplici possano generare un impatto reale se condivisi da una comunità consapevole. \n\n\  GreenAction non è stata solo una campagna ecologica, ma un vero e proprio percorso di educazione civica, pensato per trasmettere l'idea che la tutela dell'ambiente nasce dalle scelte di ogni giorno e dalla responsabilità collettiva verso il territorio.",
     gallery: [
       "/gallery/green-action/ga-0.webp",
       "/gallery/green-action/ga-1.webp",
@@ -322,7 +341,6 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
       "/gallery/croce-rossa/cr-2.webp",
       "/gallery/croce-rossa/cr-3.webp",
       "/gallery/croce-rossa/cr-4.webp",
-      "/gallery/croce-rossa/cr-5.webp",
       "/gallery/croce-rossa/cr-6.webp",
       "/gallery/croce-rossa/cr-7.webp",
       "/gallery/croce-rossa/cr-8.webp",
