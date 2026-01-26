@@ -1,6 +1,5 @@
 import React from 'react';
 import { Facebook, Instagram } from 'lucide-react';
-import logoMatteo from '@/assets/logo-matteo.png'; // Assicurati che il percorso sia giusto per te
 
 // 1. CREIAMO L'ICONA WHATSAPP PERSONALIZZATA
 const WhatsappIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
@@ -26,8 +25,9 @@ const Footer: React.FC = () => {
     <footer className="bg-primary text-primary-foreground py-24 px-6 lg:px-12">
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
         <div className="flex flex-col">
+          {/* CORREZIONE QUI: Usa il percorso diretto "/logo-matteo.png" invece dell'import */}
           <img 
-            src={logoMatteo} 
+            src="/logo-matteo.png" 
             alt="Matteo Migliore" 
             className="w-48 md:w-80 h-auto object-contain" 
           />
@@ -56,7 +56,6 @@ const Footer: React.FC = () => {
               <Instagram size={32} strokeWidth={1.5} />
             </a>
 
-            {/* 2. QUI USIAMO L'ICONA WHATSAPP AL POSTO DELLA NUVOLETTA */}
             <a 
               href="https://chat.whatsapp.com/GZ3qk2h03DjCY0tuczRWCv" 
               target="_blank" 
