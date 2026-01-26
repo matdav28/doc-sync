@@ -19,9 +19,10 @@ export default {
     },
     extend: {
       fontFamily: {
+        // Inter per il testo normale
         sans: ["Inter", "sans-serif"],
-        // Aggiungiamo 'gothic' collegato al font Union Gothic
-        gothic: ["Union Gothic", "sans-serif"], 
+        // Union Gothic per i titoli
+        heading: ["Union Gothic", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -30,8 +31,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#0c2788", // Blu Matteo
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -42,12 +43,12 @@ export default {
           foreground: "hsl(var(--destructive-foreground))",
         },
         muted: {
-          DEFAULT: "#f3f4f6",
-          foreground: "#6b7280",
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#e30613", // Rosso Matteo
-          foreground: "#ffffff",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -80,4 +81,3 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;

@@ -16,10 +16,11 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const DetailLayout = () => {
   const { id } = useParams();
   const data = PROJECTS_DATA[id as keyof typeof PROJECTS_DATA];
-  
+
+  // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Reset scroll e state quando cambia pagina
+  // EFFETTO: Quando cambia l'ID (cambio pagina), torna in cima e resetta eventuali stati
   useEffect(() => {
     window.scrollTo(0, 0);
     setSelectedImage(null);
@@ -40,12 +41,13 @@ const DetailLayout = () => {
     );
   }
 
-  // Logica Immagini: 1^ Grande, restanti nel carosello
+  // LOGICA IMMAGINI
   const allImages = data.gallery || [];
   const mainImage = allImages.length > 0 ? allImages[0] : null;
+  // Le immagini del carosello sono TUTTE tranne la prima
   const carouselImages = allImages.length > 1 ? allImages.slice(1) : [];
 
-  // Navigazione Lightbox
+  // NAVIGAZIONE LIGHTBOX
   const handleNext = useCallback(() => {
     if (!selectedImage || allImages.length === 0) return;
     const currentIdx = allImages.indexOf(selectedImage);
@@ -60,7 +62,7 @@ const DetailLayout = () => {
     setSelectedImage(allImages[prevIdx]);
   }, [selectedImage, allImages]);
 
-  // Tastiera
+  // Supporto tastiera
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedImage) return;
@@ -75,10 +77,11 @@ const DetailLayout = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-      
+
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
-          
+
+          {/* Tasto Indietro */}
           <div className="mb-6">
             <Link 
               to="/" 
@@ -89,6 +92,7 @@ const DetailLayout = () => {
             </Link>
           </div>
 
+          {/* Intestazione */}
           <div className="mb-12">
             <span className="text-accent font-bold uppercase tracking-wider text-sm mb-4 block">
               {data.category}
@@ -99,19 +103,20 @@ const DetailLayout = () => {
             <div className="w-24 h-1.5 bg-accent"></div>
           </div>
 
+          {/* GRIGLIA CONTENUTO (Testo a SX, Foto a DX) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-20">
-            
-            {/* Colonna Testo */}
+
+            {/* COLONNA SINISTRA: Testo */}
             <div>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed whitespace-pre-line">
                 {data.fullText}
               </p>
             </div>
-            
-            {/* Colonna Immagini (Main + Gallery) */}
+
+            {/* COLONNA DESTRA: Immagini (Main + Gallery) */}
             <div className="space-y-6">
-              
-              {/* Foto Principale */}
+
+              {/* 1. FOTO PRINCIPALE */}
               {mainImage ? (
                 <div 
                   className="bg-muted rounded-2xl aspect-video flex items-center justify-center border border-border overflow-hidden shadow-sm relative group cursor-pointer"
@@ -134,12 +139,13 @@ const DetailLayout = () => {
                 </div>
               )}
 
-              {/* Galleria (Carosello) sotto la foto principale */}
+              {/* 2. GALLERIA (Subito sotto la foto principale) */}
               {carouselImages.length > 0 && (
                 <div className="relative">
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Altre Foto</p>
                   </div>
+                  {/* AGGIUNTO key={id} QUI SOTTO: Reset carosello al cambio pagina */}
                   <Carousel key={id} className="w-full">
                     <CarouselContent className="-ml-2">
                       {carouselImages.map((src, index) => (
@@ -173,13 +179,13 @@ const DetailLayout = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
 
-      {/* Lightbox Modal */}
+      {/* LIGHTBOX */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
-          
+
           <button 
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
@@ -218,5 +224,3 @@ const DetailLayout = () => {
     </div>
   );
 };
-
-export default DetailLayout;
