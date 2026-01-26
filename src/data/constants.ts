@@ -136,7 +136,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     title: "CONSULTA GIOVANILE COMUNE DI POZZALLO",
     description: "L'impegno civico nasce dalla partecipazione e dal coinvolgimento diretto dei giovani.",
     details: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo...",
-    fullContent: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città. All'interno della Consulta ho contribuito a promuovere iniziative volte al coinvolgimento dei giovani, favorendo momenti di aggregazione, confronto e socialità, quali, ad esempio, l'organizzazione di tornei di calcio, pallavolo e competizioni di PlayStation."
+    fullContent: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città. <br> All'interno della Consulta ho contribuito a promuovere iniziative volte al coinvolgimento dei giovani, favorendo momenti di aggregazione, confronto e socialità, quali, ad esempio, l'organizzazione di tornei di calcio, pallavolo e competizioni di PlayStation."
   },
   {
     id: "2019-rappresentante",
