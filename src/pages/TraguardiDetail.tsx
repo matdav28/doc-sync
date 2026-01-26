@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { TIMELINE_DATA } from '@/data/constants';
-import { ArrowLeft, ArrowRight, X, ZoomIn } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import {
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
-// Componente TimelineRuler (rimane invariato)
+// Componente TimelineRuler (Invariato)
 const TimelineRuler = ({ currentId }: { currentId: string }) => {
   return (
     <div className="w-full overflow-x-auto py-8 mb-10 border-b border-border">
@@ -78,12 +78,38 @@ const TraguardiDetail: React.FC = () => {
     );
   }
 
-  // LOGICA IMMAGINI:
+  // LOGICA IMMAGINI
   const allImages = data.gallery || [];
-  // 1. La prima immagine è la "Main Image"
   const mainImage = allImages.length > 0 ? allImages[0] : null;
-  // 2. Le immagini del carosello sono TUTTE tranne la prima (slice(1))
   const carouselImages = allImages.length > 1 ? allImages.slice(1) : [];
+
+  // FUNZIONI DI NAVIGAZIONE LIGHTBOX
+  const handleNext = useCallback(() => {
+    if (!selectedImage || allImages.length === 0) return;
+    const currentIdx = allImages.indexOf(selectedImage);
+    const nextIdx = (currentIdx + 1) % allImages.length;
+    setSelectedImage(allImages[nextIdx]);
+  }, [selectedImage, allImages]);
+
+  const handlePrev = useCallback(() => {
+    if (!selectedImage || allImages.length === 0) return;
+    const currentIdx = allImages.indexOf(selectedImage);
+    const prevIdx = (currentIdx - 1 + allImages.length) % allImages.length;
+    setSelectedImage(allImages[prevIdx]);
+  }, [selectedImage, allImages]);
+
+  // Supporto tastiera (freccette)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'Escape') setSelectedImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, handleNext, handlePrev]);
+
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -117,7 +143,6 @@ const TraguardiDetail: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* TEXT COLUMN */}
             <div>
-              {/* AGGIUNTO whitespace-pre-line QUI SOTTO */}
               <p className="text-muted-foreground text-xl md:text-2xl leading-relaxed whitespace-pre-line">
                 {data.fullContent || data.details}
               </p>
@@ -126,7 +151,7 @@ const TraguardiDetail: React.FC = () => {
             {/* GALLERY COLUMN */}
             <div className="space-y-6">
               
-              {/* MAIN IMAGE (Solo se esiste) */}
+              {/* MAIN IMAGE */}
               {mainImage && (
                 <div 
                   className="aspect-video bg-muted/30 border border-border rounded-2xl overflow-hidden shadow-sm relative group cursor-pointer"
@@ -137,14 +162,13 @@ const TraguardiDetail: React.FC = () => {
                     alt="Foto principale" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  {/* Icona Zoom on hover */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                     <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" size={48} />
                   </div>
                 </div>
               )}
               
-              {/* CAROUSEL (Solo se ci sono ALTRE immagini oltre alla prima) */}
+              {/* CAROUSEL */}
               {carouselImages.length > 0 && (
                 <div className="relative">
                   <div className="flex items-center justify-between mb-3">
@@ -160,7 +184,7 @@ const TraguardiDetail: React.FC = () => {
                           >
                             <img 
                               src={src} 
-                              alt={`Foto ${i + 2}`} // +2 perché partiamo dalla seconda
+                              alt={`Foto ${i + 2}`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
@@ -215,23 +239,49 @@ const TraguardiDetail: React.FC = () => {
       
       <Footer />
 
-      {/* LIGHTBOX / VISUALIZZATORE A SCHERMO INTERO */}
+      {/* LIGHTBOX AGGIORNATO CON FRECCE */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
+          
+          {/* Pulsante Chiudi */}
           <button 
             onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 z-50 p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
+            className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
           >
             <X size={24} />
           </button>
 
-          {selectedImage && (
-            <img 
-              src={selectedImage} 
-              alt="Full screen view" 
-              className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl"
-            />
+          {/* Navigazione SX */}
+          {allImages.length > 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+              className="absolute left-4 z-[60] p-3 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm hover:scale-110"
+            >
+              <ChevronLeft size={32} />
+            </button>
           )}
+
+          {/* Immagine */}
+          {selectedImage && (
+            <div className="relative flex items-center justify-center w-full h-full">
+              <img 
+                src={selectedImage} 
+                alt="Full screen view" 
+                className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl animate-in fade-in zoom-in-95 duration-300"
+              />
+            </div>
+          )}
+
+          {/* Navigazione DX */}
+          {allImages.length > 1 && (
+            <button
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+              className="absolute right-4 z-[60] p-3 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm hover:scale-110"
+            >
+              <ChevronRight size={32} />
+            </button>
+          )}
+
         </DialogContent>
       </Dialog>
     </div>

@@ -1,5 +1,25 @@
 import React from 'react';
-import { Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Facebook, Instagram } from 'lucide-react';
+import logoMatteo from '@/assets/logo-matteo.png'; // Assicurati che il percorso sia giusto per te
+
+// 1. CREIAMO L'ICONA WHATSAPP PERSONALIZZATA
+const WhatsappIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="1.5" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+  </svg>
+);
 
 const Footer: React.FC = () => {
   return (
@@ -7,24 +27,44 @@ const Footer: React.FC = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
         <div className="flex flex-col">
           <img 
-            src="/logo-matteo.png" 
+            src={logoMatteo} 
             alt="Matteo Migliore" 
-            className="w-24 md:w-40 h-auto object-contain" 
+            className="w-48 md:w-80 h-auto object-contain" 
           />
         </div>
-        
 
         <div className="flex flex-col space-y-8">
-          <h4 className="font-display font-medium text-[10px] text-blue-300 tracking-widest uppercase">SOCIAL MEDIA</h4>
+          <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">SOCIAL MEDIA</h4>
           <div className="flex space-x-10">
-            <a href="https://www.facebook.com/matteo.migliore.12" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" aria-label="Facebook">
+            <a 
+              href="https://www.facebook.com/matteo.migliore.12" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-70 transition-opacity" 
+              aria-label="Facebook"
+            >
               <Facebook size={32} strokeWidth={1.5} />
             </a>
-            <a href="https://www.instagram.com/_matteomigliore_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" aria-label="Instagram">
+            
+            <a 
+              href="https://www.instagram.com/_matteomigliore_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-70 transition-opacity" 
+              aria-label="Instagram"
+            >
               <Instagram size={32} strokeWidth={1.5} />
             </a>
-            <a href="https://chat.whatsapp.com/GZ3qk2h03DjCY0tuczRWCv" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity" aria-label="WhatsApp">
-              <MessageCircle size={32} strokeWidth={1.5} />
+
+            {/* 2. QUI USIAMO L'ICONA WHATSAPP AL POSTO DELLA NUVOLETTA */}
+            <a 
+              href="https://chat.whatsapp.com/GZ3qk2h03DjCY0tuczRWCv" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:opacity-70 transition-opacity" 
+              aria-label="WhatsApp"
+            >
+              <WhatsappIcon size={32} />
             </a>
           </div>
         </div>
