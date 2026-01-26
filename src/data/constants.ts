@@ -136,7 +136,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     title: "CONSULTA GIOVANILE COMUNE DI POZZALLO",
     description: "L'impegno civico nasce dalla partecipazione e dal coinvolgimento diretto dei giovani.",
     details: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo...",
-    fullContent: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città. <br> All'interno della Consulta ho contribuito a promuovere iniziative volte al coinvolgimento dei giovani, favorendo momenti di aggregazione, confronto e socialità, quali, ad esempio, l'organizzazione di tornei di calcio, pallavolo e competizioni di PlayStation."
+    fullContent: "Dal 2016, all'età di 14 anni, fino al 2021, ho fatto parte della Consulta Giovanile del Comune di Pozzallo, un'esperienza che ha rappresentato il mio primo e più importante percorso di partecipazione attiva alla vita pubblica della città. \n\n\ All'interno della Consulta ho contribuito a promuovere iniziative volte al coinvolgimento dei giovani, favorendo momenti di aggregazione, confronto e socialità, quali, ad esempio, l'organizzazione di tornei di calcio, pallavolo e competizioni di PlayStation."
   },
   {
     id: "2019-rappresentante",
@@ -144,7 +144,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
     title: "RAPPRESENTANTE D'ISTITUTO",
     description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare.",
     details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio...",
-    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare. Mi sono avvicinato ai temi dell'organizzazione scolastica, della qualità degli spazi, del ruolo delle assemblee e della partecipazione studentesca, concentrandomi su aspetti concreti e quotidiani, fondamentali per rendere la scuola un ambiente vivo e inclusivo. Questa è stata la mia prima esperienza di rappresentanza, il momento in cui ho compreso che il cambiamento è possibile quando qualcuno sceglie di assumersi una responsabilità e di impegnarsi in prima persona per il bene collettivo.",
+    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare. \n\n\ Mi sono avvicinato ai temi dell'organizzazione scolastica, della qualità degli spazi, del ruolo delle assemblee e della partecipazione studentesca, concentrandomi su aspetti concreti e quotidiani, fondamentali per rendere la scuola un ambiente vivo e inclusivo. \n\n\ Questa è stata la mia prima esperienza di rappresentanza, il momento in cui ho compreso che il cambiamento è possibile quando qualcuno sceglie di assumersi una responsabilità e di impegnarsi in prima persona per il bene collettivo.",
     gallery: [
         "/gallery/rappresentante-istituto/ri-1.webp",
         "/gallery/rappresentante-istituto/ri-2.webp",
