@@ -299,8 +299,6 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
       "/gallery/euroness/eu-0.webp",
       "/gallery/euroness/eu-1.webp",
       "/gallery/euroness/eu-2.webp",
-      "/gallery/euroness/eu-4.webp",
-      "/gallery/euroness/eu-5.webp",
       "/gallery/euroness/eu-6.webp"
     ]
   },

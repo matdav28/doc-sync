@@ -20,6 +20,12 @@ const DetailLayout = () => {
   // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
+  // EFFETTO: Quando cambia l'ID (cambio pagina), torna in cima e resetta eventuali stati
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setSelectedImage(null);
+  }, [id]);
+
   if (!data) {
     return (
       <div className="min-h-screen bg-background flex flex-col">
@@ -139,7 +145,8 @@ const DetailLayout = () => {
                   <div className="flex items-center justify-between mb-3">
                     <p className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Altre Foto</p>
                   </div>
-                  <Carousel className="w-full">
+                  {/* AGGIUNTO key={id} QUI SOTTO: Reset carosello al cambio pagina */}
+                  <Carousel key={id} className="w-full">
                     <CarouselContent className="-ml-2">
                       {carouselImages.map((src, index) => (
                         <CarouselItem key={index} className="pl-2 basis-1/3">

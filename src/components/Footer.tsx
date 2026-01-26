@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
           <img 
             src="/logo-matteo.png" 
             alt="Matteo Migliore" 
-            className="w-48 md:w-80 h-auto object-contain" 
+            className="w-24 md:w-40 h-auto object-contain" 
           />
         </div>
 
