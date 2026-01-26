@@ -144,7 +144,18 @@ export const TIMELINE_DATA: TimelineItem[] = [
     title: "RAPPRESENTANTE D'ISTITUTO",
     description: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare.",
     details: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio...",
-    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare. Mi sono avvicinato ai temi dell'organizzazione scolastica, della qualità degli spazi, del ruolo delle assemblee e della partecipazione studentesca, concentrandomi su aspetti concreti e quotidiani, fondamentali per rendere la scuola un ambiente vivo e inclusivo. Questa è stata la mia prima esperienza di rappresentanza, il momento in cui ho compreso che il cambiamento è possibile quando qualcuno sceglie di assumersi una responsabilità e di impegnarsi in prima persona per il bene collettivo."
+    fullContent: "Al Liceo Scientifico 'Giorgio La Pira' di Pozzallo ho iniziato a guardare la scuola non solo come un luogo di studio, ma come una comunità da migliorare. Mi sono avvicinato ai temi dell'organizzazione scolastica, della qualità degli spazi, del ruolo delle assemblee e della partecipazione studentesca, concentrandomi su aspetti concreti e quotidiani, fondamentali per rendere la scuola un ambiente vivo e inclusivo. Questa è stata la mia prima esperienza di rappresentanza, il momento in cui ho compreso che il cambiamento è possibile quando qualcuno sceglie di assumersi una responsabilità e di impegnarsi in prima persona per il bene collettivo.",
+    gallery: [
+        "/gallery/rappresentante-istituto/ri-1.webp",
+        "/gallery/rappresentante-istituto/ri-2.webp",
+        "/gallery/rappresentante-istituto/ri-3.webp",
+        "/gallery/rappresentante-istituto/ri-4.webp",
+        "/gallery/rappresentante-istituto/ri-5.webp",
+        "/gallery/rappresentante-istituto/ri-6.webp",
+        "/gallery/rappresentante-istituto/ri-0.webp"
+
+
+    ]
   },
   {
     id: "2020-presidente-cps",
