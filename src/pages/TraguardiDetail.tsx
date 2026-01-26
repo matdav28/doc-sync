@@ -202,8 +202,8 @@ const TraguardiDetail: React.FC = () => {
             </div>
           </div>
 
-          {/* NAVIGATION ARROWS */}
-          <div className="flex justify-between items-center mt-20 pt-10 border-t border-border">
+          {/* NAVIGATION ARROWS (MODIFICATO PER PIÙ SPAZIO) */}
+          <div className="flex justify-between items-center py-10 my-20 border-y border-border">
             {prevItem ? (
               <Link
                 to={`/traguardi/${prevItem.id}`}
@@ -239,11 +239,10 @@ const TraguardiDetail: React.FC = () => {
       
       <Footer />
 
-      {/* LIGHTBOX AGGIORNATO CON FRECCE */}
+      {/* LIGHTBOX CON FRECCE */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
           
-          {/* Pulsante Chiudi */}
           <button 
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
@@ -251,7 +250,6 @@ const TraguardiDetail: React.FC = () => {
             <X size={24} />
           </button>
 
-          {/* Navigazione SX */}
           {allImages.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); handlePrev(); }}
@@ -261,7 +259,6 @@ const TraguardiDetail: React.FC = () => {
             </button>
           )}
 
-          {/* Immagine */}
           {selectedImage && (
             <div className="relative flex items-center justify-center w-full h-full">
               <img 
@@ -272,7 +269,6 @@ const TraguardiDetail: React.FC = () => {
             </div>
           )}
 
-          {/* Navigazione DX */}
           {allImages.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); handleNext(); }}
