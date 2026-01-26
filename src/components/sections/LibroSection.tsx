@@ -1,7 +1,8 @@
 import React from 'react';
 import Section from '@/components/Section';
 import { ArrowUpRight } from 'lucide-react';
-import bookCover from '@/assets/book-cover.png';
+// CORREZIONE QUI: aggiunto .png finale perché il file si chiama book-cover.png.png
+import bookCover from '@/assets/book-cover.png.png';
 
 const LibroSection: React.FC = () => {
   return (
@@ -20,7 +21,7 @@ const LibroSection: React.FC = () => {
 
         {/* Right: Content */}
         <div className="flex flex-col items-start text-left">
-          {/* The Quote - Much Larger */}
+          {/* The Quote */}
           <div className="mb-10 border-l-4 border-accent pl-6">
             <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-primary leading-tight italic">
               "Una testimonianza generazionale, scritta mentre le cose accadevano."
