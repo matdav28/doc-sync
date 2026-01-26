@@ -295,10 +295,10 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     description: "Risparmiare, trarre vantaggio, fare del bene.",
     fullText: "Euroness nasce come un'idea sviluppata in ambito scolastico, con l'obiettivo di promuovere il risparmio e sostenere la realizzazione di progetti per la comunità scolastica. \n\n\ Nel tempo il progetto si è evoluto, trovando oggi applicazione anche nel campo della numismatica, come forma di collezione consapevole e valorizzazione del risparmio. \n\n\ Alla base di Euroness c'è l'idea di trasformare il risparmio in uno strumento di solidarietà. Il progetto mira a costruire un modello economico circolare, capace di generare benefici diretti per i cittadini a partire dalle loro scelte di consumo, reinvestendo una parte del valore prodotto in iniziative di utilità sociale per il territorio. \n\n\ Un'esperienza che unisce educazione economica, responsabilità sociale e attenzione alla comunità, dimostrando come anche piccoli gesti possano contribuire a creare valore condiviso.",
     gallery: [
+      "/gallery/euroness/eu-3.webp",
       "/gallery/euroness/eu-0.webp",
       "/gallery/euroness/eu-1.webp",
       "/gallery/euroness/eu-2.webp",
-      "/gallery/euroness/eu-3.webp",
       "/gallery/euroness/eu-4.webp",
       "/gallery/euroness/eu-5.webp",
       "/gallery/euroness/eu-6.webp"
@@ -323,10 +323,10 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     description: "Gioco, città, collaborazione.",
     fullText: "Trasformare un gioco statico in un'esperienza dinamica urbana. Enigma Lab ha portato i giovani a riscoprire i luoghi della città attraverso la gamification, risolvendo enigmi legati alla storia e alla cultura locale, favorendo la collaborazione e il senso di appartenenza.",
     gallery: [
+      "/gallery/enigma-lab/en-3.webp",
       "/gallery/enigma-lab/en-0.webp",
       "/gallery/enigma-lab/en-1.webp",
       "/gallery/enigma-lab/en-2.webp",
-      "/gallery/enigma-lab/en-3.webp",
       "/gallery/enigma-lab/en-4.webp"
     ]
   },
@@ -336,13 +336,13 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     description: "Umanità, imparzialità, neutralità.",
     fullText: "Il servizio civile è stata l'occasione per conoscere la mia comunità da un'altra prospettiva. Non da studente, ma da cittadino attivo che si mette a disposizione. In Croce Rossa ho imparato il valore del soccorso, dell'ascolto e della presenza silenziosa accanto a chi soffre.",
     gallery: [
+      "/gallery/croce-rossa/cr-7.webp",
       "/gallery/croce-rossa/cr-0.webp",
       "/gallery/croce-rossa/cr-1.webp",
       "/gallery/croce-rossa/cr-2.webp",
       "/gallery/croce-rossa/cr-3.webp",
       "/gallery/croce-rossa/cr-4.webp",
       "/gallery/croce-rossa/cr-6.webp",
-      "/gallery/croce-rossa/cr-7.webp",
       "/gallery/croce-rossa/cr-8.webp",
       "/gallery/croce-rossa/cr-9.webp",
       "/gallery/croce-rossa/cr-10.webp",
@@ -358,13 +358,13 @@ export const PROJECTS_DATA: Record<string, ProjectDetailItem> = {
     description: "Circolo 'A Valata' di Pozzallo.",
     fullText: "Una mano per l'ambiente. Con il circolo 'A Valata' di Pozzallo abbiamo promosso un ambientalismo attivo, fatto non solo di proteste ma di proposte e azioni concrete per la tutela del nostro territorio e delle nostre radici, difendendo la bellezza della nostra terra.",
     gallery: [
+      "/gallery/legambiente/la-6.webp",
       "/gallery/legambiente/la-0.webp",
       "/gallery/legambiente/la-1.webp",
       "/gallery/legambiente/la-2.webp",
       "/gallery/legambiente/la-3.webp",
       "/gallery/legambiente/la-4.webp",
       "/gallery/legambiente/la-5.webp",
-      "/gallery/legambiente/la-6.webp",
       "/gallery/legambiente/la-7.webp",
       "/gallery/legambiente/la-8.webp",
       "/gallery/legambiente/la-9.webp",
