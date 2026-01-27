@@ -36,7 +36,7 @@ const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu }) => {
     <div className="relative group">
       <button
         onClick={handleMainClick}
-        className="flex items-center gap-1 text-primary-foreground hover:text-accent transition-colors font-display font-medium text-sm uppercase tracking-wide py-2"
+        className="nav-link flex items-center gap-1 text-primary-foreground hover:text-accent transition-colors py-2"
       >
         {title}
         {submenu && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
@@ -49,7 +49,7 @@ const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu }) => {
               <Link
                 key={i}
                 to={item.href}
-                className={`block px-5 py-3 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors ${
+                className={`block px-5 py-3 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors font-heading ${
                   i === 0 ? 'rounded-t-xl' : ''
                 } ${i === submenu.length - 1 ? 'rounded-b-xl' : ''}`}
               >
@@ -104,8 +104,9 @@ const Header: React.FC = () => {
         <div className="flex h-20 md:h-24 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-display text-xl md:text-2xl text-primary-foreground font-medium tracking-tight uppercase">
-              MATTEO MIGLIORE
+            <span className="font-heading text-xl md:text-2xl text-primary-foreground tracking-tight uppercase">
+              <span className="font-black">Matteo</span>{' '}
+              <span className="font-normal">Migliore</span>
             </span>
           </Link>
 
@@ -135,21 +136,21 @@ const Header: React.FC = () => {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-primary border-t border-primary-foreground/10 max-h-[80vh] overflow-y-auto">
           <div className="px-6 py-6 flex flex-col space-y-2">
-            <button onClick={() => handleMobileNavClick('#home')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
+            <button onClick={() => handleMobileNavClick('#home')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-heading">
               HOME
             </button>
-            <button onClick={() => handleMobileNavClick('#chi-sono')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
+            <button onClick={() => handleMobileNavClick('#chi-sono')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-heading">
               CHI SONO
             </button>
             
             {/* Traguardi with submenu */}
             <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#traguardi')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
+              <button onClick={() => handleMobileNavClick('#traguardi')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-heading">
                 I TRAGUARDI
               </button>
               <div className="pl-4 pb-3 space-y-2">
                 {NAV_MENU.traguardi.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
+                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-heading">
                     {item.label}
                   </Link>
                 ))}
@@ -158,33 +159,33 @@ const Header: React.FC = () => {
 
             {/* Progetti with submenu */}
             <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#progetti')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
+              <button onClick={() => handleMobileNavClick('#progetti')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-heading">
                 PROGETTI
               </button>
               <div className="pl-4 pb-3 space-y-2">
                 {NAV_MENU.progetti.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
+                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-heading">
                     {item.label}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <button onClick={() => handleMobileNavClick('#sala-stampa')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
+            <button onClick={() => handleMobileNavClick('#sala-stampa')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-heading">
               SALA STAMPA
             </button>
-            <button onClick={() => handleMobileNavClick('#libro')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-display">
+            <button onClick={() => handleMobileNavClick('#libro')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 border-b border-primary-foreground/10 font-heading">
               LIBRO
             </button>
 
             {/* Servizio Civile with submenu */}
             <div className="border-b border-primary-foreground/10">
-              <button onClick={() => handleMobileNavClick('#servizio-civile')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
+              <button onClick={() => handleMobileNavClick('#servizio-civile')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-heading">
                 SERVIZIO CIVILE
               </button>
               <div className="pl-4 pb-3 space-y-2">
                 {NAV_MENU.servizio.map((item, i) => (
-                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-display">
+                  <Link key={i} to={item.href} className="block text-primary-foreground/70 text-sm py-1 hover:text-accent font-heading">
                     {item.label}
                   </Link>
                 ))}
