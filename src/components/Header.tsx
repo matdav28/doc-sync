@@ -7,10 +7,9 @@ interface NavItemProps {
   title: string;
   anchor: string;
   submenu?: { label: string; href: string }[];
-  textColorClass: string;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu, textColorClass }) => {
+const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
@@ -37,7 +36,7 @@ const NavItem: React.FC<NavItemProps> = ({ title, anchor, submenu, textColorClas
     <div className="relative group">
       <button
         onClick={handleMainClick}
-        className={`flex items-center gap-1 ${textColorClass} hover:text-accent transition-colors font-display font-medium text-sm uppercase tracking-wide py-2`}
+        className="flex items-center gap-1 text-primary-foreground hover:text-accent transition-colors font-display font-medium text-sm uppercase tracking-wide py-2"
       >
         {title}
         {submenu && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
@@ -69,7 +68,6 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -100,50 +98,32 @@ const Header: React.FC = () => {
     setMobileMenuOpen(false);
   };
 
-  // LOGICA SFONDO:
-  // Scorrendo -> Bianco
-  // In cima: Home -> Trasparente / Altre -> Blu
-  const headerBgClass = isScrolled 
-    ? 'bg-white/95 backdrop-blur-md shadow-lg py-4' 
-    : isHome 
-      ? 'bg-transparent py-6' 
-      : 'bg-primary py-6';
-
-  // LOGICA TESTO:
-  // Scorrendo -> Blu
-  // In cima -> Bianco
-  const textColorClass = isScrolled ? 'text-primary' : 'text-primary-foreground';
-
   return (
-    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${headerBgClass}`}>
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-primary'}`}>
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="flex h-20 md:h-24 items-center justify-between">
-          
-          {/* Logo Stacked */}
-          <Link to="/" className="flex flex-col items-start leading-none gap-0.5">
-            <span className={`font-display text-xl md:text-2xl font-black tracking-tight uppercase transition-colors ${textColorClass}`}>
-              MATTEO
-            </span>
-            <span className={`font-display text-xl md:text-2xl font-normal tracking-tight uppercase transition-colors ${textColorClass}`}>
-              MIGLIORE
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2">
+            <span className="font-display text-xl md:text-2xl text-primary-foreground font-medium tracking-tight uppercase">
+              MATTEO MIGLIORE
             </span>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6">
-            <NavItem title="HOME" anchor="#home" textColorClass={textColorClass} />
-            <NavItem title="CHI SONO" anchor="#chi-sono" textColorClass={textColorClass} />
-            <NavItem title="I TRAGUARDI" anchor="#traguardi" submenu={NAV_MENU.traguardi} textColorClass={textColorClass} />
-            <NavItem title="PROGETTI" anchor="#progetti" submenu={NAV_MENU.progetti} textColorClass={textColorClass} />
-            <NavItem title="SALA STAMPA" anchor="#sala-stampa" textColorClass={textColorClass} />
-            <NavItem title="LIBRO" anchor="#libro" textColorClass={textColorClass} />
-            <NavItem title="SERVIZIO CIVILE" anchor="#servizio-civile" submenu={NAV_MENU.servizio} textColorClass={textColorClass} />
+            <NavItem title="HOME" anchor="#home" />
+            <NavItem title="CHI SONO" anchor="#chi-sono" />
+            <NavItem title="I TRAGUARDI" anchor="#traguardi" submenu={NAV_MENU.traguardi} />
+            <NavItem title="PROGETTI" anchor="#progetti" submenu={NAV_MENU.progetti} />
+            <NavItem title="SALA STAMPA" anchor="#sala-stampa" />
+            <NavItem title="LIBRO" anchor="#libro" />
+            <NavItem title="SERVIZIO CIVILE" anchor="#servizio-civile" submenu={NAV_MENU.servizio} />
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors ${textColorClass}`}
+            className="lg:hidden text-primary-foreground p-2"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -151,7 +131,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-primary border-t border-primary-foreground/10 max-h-[80vh] overflow-y-auto">
           <div className="px-6 py-6 flex flex-col space-y-2">
@@ -162,6 +142,7 @@ const Header: React.FC = () => {
               CHI SONO
             </button>
             
+            {/* Traguardi with submenu */}
             <div className="border-b border-primary-foreground/10">
               <button onClick={() => handleMobileNavClick('#traguardi')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
                 I TRAGUARDI
@@ -175,6 +156,7 @@ const Header: React.FC = () => {
               </div>
             </div>
 
+            {/* Progetti with submenu */}
             <div className="border-b border-primary-foreground/10">
               <button onClick={() => handleMobileNavClick('#progetti')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
                 PROGETTI
@@ -195,6 +177,7 @@ const Header: React.FC = () => {
               LIBRO
             </button>
 
+            {/* Servizio Civile with submenu */}
             <div className="border-b border-primary-foreground/10">
               <button onClick={() => handleMobileNavClick('#servizio-civile')} className="text-left nav-link text-primary-foreground text-lg w-full py-3 block font-display">
                 SERVIZIO CIVILE

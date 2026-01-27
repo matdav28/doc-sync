@@ -16,7 +16,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const DetailLayout = () => {
   const { id } = useParams();
   const data = PROJECTS_DATA[id as keyof typeof PROJECTS_DATA];
-
+  
   // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -77,10 +77,10 @@ const DetailLayout = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
-
+      
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
-
+          
           {/* Tasto Indietro */}
           <div className="mb-6">
             <Link 
@@ -105,17 +105,17 @@ const DetailLayout = () => {
 
           {/* GRIGLIA CONTENUTO (Testo a SX, Foto a DX) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-20">
-
+            
             {/* COLONNA SINISTRA: Testo */}
             <div>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed whitespace-pre-line">
                 {data.fullText}
               </p>
             </div>
-
+            
             {/* COLONNA DESTRA: Immagini (Main + Gallery) */}
             <div className="space-y-6">
-
+              
               {/* 1. FOTO PRINCIPALE */}
               {mainImage ? (
                 <div 
@@ -179,13 +179,13 @@ const DetailLayout = () => {
           </div>
         </div>
       </main>
-
+      
       <Footer />
 
       {/* LIGHTBOX */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
-
+          
           <button 
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
@@ -224,3 +224,5 @@ const DetailLayout = () => {
     </div>
   );
 };
+
+export default DetailLayout;
