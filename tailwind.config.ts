@@ -19,10 +19,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        // Inter per il testo normale
         sans: ["Inter", "sans-serif"],
-        // Union Gothic per i titoli
-        heading: ["Union Gothic", "sans-serif"],
+        // AGGIUNTA: Definizione del font gothic
+        gothic: ["Union Gothic", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
