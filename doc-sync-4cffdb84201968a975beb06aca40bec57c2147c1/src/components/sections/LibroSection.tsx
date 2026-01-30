@@ -1,7 +1,6 @@
 import React from 'react';
 import Section from '@/components/Section';
 import { ArrowUpRight } from 'lucide-react';
-// CORREZIONE QUI: aggiunto .png finale perché il file si chiama book-cover.png.png
 import bookCover from '@/assets/book-cover.png.png';
 
 const LibroSection: React.FC = () => {
@@ -10,7 +9,8 @@ const LibroSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left: Book Cover Image */}
         <div className="flex justify-center">
-          <div className="relative w-[280px] md:w-[320px] transform hover:scale-105 transition-transform duration-500">
+          {/* MODIFICA: Dimensioni aumentate ulteriormente */}
+          <div className="relative w-[420px] md:w-[600px] transform hover:scale-105 transition-transform duration-500">
             <img 
               src={bookCover}
               alt="Ritorno al Futuro - Copertina del libro di Matteo Migliore"

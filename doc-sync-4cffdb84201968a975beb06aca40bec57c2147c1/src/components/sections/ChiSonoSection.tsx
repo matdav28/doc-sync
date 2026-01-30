@@ -29,7 +29,7 @@ const ChiSonoSection: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
               <img 
-                src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800&h=600&fit=crop"
+                src="radici.jpeg"
                 alt="Pozzallo, Sicilia"
                 className="w-full h-full object-cover"
               />
@@ -45,7 +45,7 @@ const ChiSonoSection: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
               <img 
-                src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=600&fit=crop"
+                src="formazione.jpeg"
                 alt="Università di Bologna"
                 className="w-full h-full object-cover"
               />
@@ -97,7 +97,7 @@ const ChiSonoSection: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
               <img 
-                src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=600&fit=crop"
+                src="/gallery/eu-school/eu-2.webp"
                 alt="Impegno politico"
                 className="w-full h-full object-cover"
               />
@@ -113,7 +113,7 @@ const ChiSonoSection: React.FC = () => {
           <div className="relative">
             <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
               <img 
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop"
+                src="impegnarsi.jpeg"
                 alt="Impegno universitario"
                 className="w-full h-full object-cover"
               />

@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Instagram } from 'lucide-react';
 
-// 1. CREIAMO L'ICONA WHATSAPP PERSONALIZZATA
+// ICONA WHATSAPP PERSONALIZZATA
 const WhatsappIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -21,18 +22,28 @@ const WhatsappIcon = ({ size = 24, className = "" }: { size?: number, className?
 );
 
 const Footer: React.FC = () => {
+  
+  // Funzione per tornare in cima alla pagina
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-primary text-primary-foreground py-24 px-6 lg:px-12">
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+        
+        {/* LOGO CLICCABILE */}
         <div className="flex flex-col">
-          {/* CORREZIONE QUI: Usa il percorso diretto "/logo-matteo.png" invece dell'import */}
-          <img 
-            src="/logo-matteo.png" 
-            alt="Matteo Migliore" 
-            className="w-24 md:w-40 h-auto object-contain" 
-          />
+          <Link to="/" onClick={scrollToTop} className="cursor-pointer hover:opacity-90 transition-opacity">
+            <img 
+              src="/logo-matteo.png" 
+              alt="Matteo Migliore" 
+              className="w-24 md:w-40 h-auto object-contain" 
+            />
+          </Link>
         </div>
 
+        {/* SOCIAL MEDIA */}
         <div className="flex flex-col space-y-8">
           <h4 className="heading-stampatello text-[10px] text-blue-300 font-black tracking-widest">SOCIAL MEDIA</h4>
           <div className="flex space-x-10">
@@ -69,10 +80,37 @@ const Footer: React.FC = () => {
         </div>
       </div>
       
-      <div className="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-primary-foreground/20">
-        <p className="text-sm opacity-60">
-          © {new Date().getFullYear()} Matteo Migliore. Sistema di Informazione.
-        </p>
+      {/* BARRA INFERIORE */}
+      <div className="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-primary-foreground/20 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+        
+        {/* COPYRIGHT & CREDITS */}
+        <div className="flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+          <p className="text-sm opacity-60">
+            © {new Date().getFullYear()} Matteo Migliore. Sistema di Informazione.
+          </p>
+          <span className="hidden md:inline text-sm opacity-40">|</span>
+          <p className="text-sm opacity-60">
+            Sito realizzato da{' '}
+            <a 
+              href="https://dvdstudio.it" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-accent hover:underline transition-colors font-semibold"
+            >
+              dvdstudio
+            </a>
+          </p>
+        </div>
+        
+        {/* LINK CURRICULUM */}
+        <a 
+          href="/curriculum.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-sm opacity-60 hover:opacity-100 hover:text-accent hover:underline transition-all uppercase tracking-wider font-bold"
+        >
+          CURRICULUM VITAE
+        </a>
       </div>
     </footer>
   );
