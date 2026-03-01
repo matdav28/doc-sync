@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { TIMELINE_DATA } from '@/data/constants';
 import { ArrowLeft, ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '@/components/Header';
@@ -51,13 +52,13 @@ const TimelineRuler = ({ currentId }: { currentId: string }) => {
 
 const TraguardiDetail: React.FC = () => {
   const { id } = useParams();
-  
+
   // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const currentIndex = TIMELINE_DATA.findIndex(t => t.id === id);
   const data = TIMELINE_DATA[currentIndex];
-  
+
   const prevItem = currentIndex > 0 ? TIMELINE_DATA[currentIndex - 1] : null;
   const nextItem = currentIndex < TIMELINE_DATA.length - 1 ? TIMELINE_DATA[currentIndex + 1] : null;
 
@@ -111,10 +112,25 @@ const TraguardiDetail: React.FC = () => {
   }, [selectedImage, handleNext, handlePrev]);
 
 
+  const yearClean = data.year.replace('Dal ', '');
+  const pageTitle = `${yearClean} – ${data.title} | Matteo Migliore`;
+  const pageDesc = `${data.description} ${data.details.slice(0, 120)}...`;
+  const canonicalUrl = `https://matteomigliore.it/traguardi/${data.id}`;
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        {mainImage && <meta property="og:image" content={`https://matteomigliore.it${mainImage}`} />}
+      </Helmet>
       <Header />
-      
+
       <main className="flex-grow pt-24 md:pt-32">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           {/* Back Button */}
@@ -125,7 +141,7 @@ const TraguardiDetail: React.FC = () => {
             <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
             <span className="font-medium">Home</span>
           </Link>
-          
+
           <TimelineRuler currentId={data.id} />
 
           {/* HEADER */}
@@ -150,24 +166,25 @@ const TraguardiDetail: React.FC = () => {
 
             {/* GALLERY COLUMN */}
             <div className="space-y-6">
-              
+
               {/* MAIN IMAGE */}
               {mainImage && (
-                <div 
+                <div
                   className="aspect-video bg-muted/30 border border-border rounded-2xl overflow-hidden shadow-sm relative group cursor-pointer"
                   onClick={() => setSelectedImage(mainImage)}
                 >
-                  <img 
-                    src={mainImage} 
-                    alt="Foto principale" 
+                  <img
+                    src={mainImage}
+                    alt={`Foto principale – ${data.title} di Matteo Migliore`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fetchPriority="high"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                     <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" size={48} />
                   </div>
                 </div>
               )}
-              
+
               {/* CAROUSEL */}
               {carouselImages.length > 0 && (
                 <div className="relative">
@@ -178,14 +195,17 @@ const TraguardiDetail: React.FC = () => {
                     <CarouselContent className="-ml-2">
                       {carouselImages.map((src, i) => (
                         <CarouselItem key={i} className="pl-2 basis-1/3">
-                          <div 
+                          <div
                             className="aspect-square bg-muted/30 border border-border rounded-xl overflow-hidden cursor-pointer group relative hover:shadow-md transition-all"
                             onClick={() => setSelectedImage(src)}
                           >
-                            <img 
-                              src={src} 
-                              alt={`Foto ${i + 2}`}
+                            <img
+                              src={src}
+                              alt={`Foto ${i + 2} – ${data.title} di Matteo Migliore`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                              loading="lazy"
+                              width="400"
+                              height="400"
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                           </div>
@@ -236,14 +256,14 @@ const TraguardiDetail: React.FC = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
 
       {/* LIGHTBOX CON FRECCE */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
-          
-          <button 
+
+          <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
           >
@@ -261,9 +281,9 @@ const TraguardiDetail: React.FC = () => {
 
           {selectedImage && (
             <div className="relative flex items-center justify-center w-full h-full">
-              <img 
-                src={selectedImage} 
-                alt="Full screen view" 
+              <img
+                src={selectedImage}
+                alt="Full screen view"
                 className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl animate-in fade-in zoom-in-95 duration-300"
               />
             </div>

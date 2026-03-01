@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { PROJECTS_DATA } from '@/data/constants';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -16,7 +17,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 const DetailLayout = () => {
   const { id } = useParams();
   const data = PROJECTS_DATA[id as keyof typeof PROJECTS_DATA];
-  
+
   // Stato per gestire l'immagine a tutto schermo
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -74,17 +75,33 @@ const DetailLayout = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage, handleNext, handlePrev]);
 
+  const pageTitle = `${data.title} – ${data.category} | Matteo Migliore`;
+  const pageDesc = data.description
+    ? `${data.description} ${data.fullText.slice(0, 120).replace(/\n/g, ' ')}...`
+    : `Scopri il progetto ${data.title} di Matteo Migliore.`;
+  const canonicalUrl = `https://matteomigliore.it/dettaglio/${id}`;
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        {mainImage && <meta property="og:image" content={`https://matteomigliore.it${mainImage}`} />}
+      </Helmet>
       <Header />
-      
+
       <main className="flex-grow">
         <div className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-12 md:pt-36 md:pb-20">
-          
+
           {/* Tasto Indietro */}
           <div className="mb-6">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
             >
               <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
@@ -105,7 +122,7 @@ const DetailLayout = () => {
 
           {/* GRIGLIA CONTENUTO (Testo a SX, Foto a DX) */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 mb-20">
-            
+
             {/* COLONNA SINISTRA: Testo */}
             <div>
               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed whitespace-pre-line">
@@ -113,34 +130,35 @@ const DetailLayout = () => {
               </p>
 
               {id === "enigma-lab" && (
-                  <div className="mt-8">
-                    <a
-                      href="https://www.instagram.com/enigma.lab_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 bg-accent text-accent-foreground px-6 py-4 rounded-full font-bold uppercase tracking-wider
+                <div className="mt-8">
+                  <a
+                    href="https://www.instagram.com/enigma.lab_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-accent text-accent-foreground px-6 py-4 rounded-full font-bold uppercase tracking-wider
                                 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                    >
-                      Segui Enigma Lab su Instagram
-                    </a>
-                  </div>
-                )}
+                  >
+                    Segui Enigma Lab su Instagram
+                  </a>
+                </div>
+              )}
 
             </div>
-            
+
             {/* COLONNA DESTRA: Immagini (Main + Gallery) */}
             <div className="space-y-6">
-              
+
               {/* 1. FOTO PRINCIPALE */}
               {mainImage ? (
-                <div 
+                <div
                   className="bg-muted rounded-2xl aspect-video flex items-center justify-center border border-border overflow-hidden shadow-sm relative group cursor-pointer"
                   onClick={() => setSelectedImage(mainImage)}
                 >
-                  <img 
-                    src={mainImage} 
-                    alt={`Immagine principale ${data.title}`}
+                  <img
+                    src={mainImage}
+                    alt={`Immagine principale di ${data.title} – ${data.category} di Matteo Migliore`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    fetchPriority="high"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                     <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" size={48} />
@@ -166,15 +184,17 @@ const DetailLayout = () => {
                       {carouselImages.map((src, index) => (
                         <CarouselItem key={index} className="pl-2 basis-1/3">
                           <div className="p-1">
-                            <div 
+                            <div
                               className="bg-muted rounded-xl aspect-square flex items-center justify-center border border-border hover:border-accent transition-all overflow-hidden cursor-pointer group relative shadow-sm hover:shadow-md"
                               onClick={() => setSelectedImage(src)}
                             >
-                              <img 
-                                src={src} 
-                                alt={`Galleria ${data.title} ${index + 2}`}
+                              <img
+                                src={src}
+                                alt={`Foto ${index + 2} – ${data.title} di Matteo Migliore`}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 loading="lazy"
+                                width="400"
+                                height="400"
                               />
                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
                             </div>
@@ -194,14 +214,14 @@ const DetailLayout = () => {
           </div>
         </div>
       </main>
-      
+
       <Footer />
 
       {/* LIGHTBOX */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center focus:outline-none">
-          
-          <button 
+
+          <button
             onClick={() => setSelectedImage(null)}
             className="absolute top-4 right-4 z-[60] p-2 bg-black/50 text-white rounded-full hover:bg-black/80 transition-colors backdrop-blur-sm"
           >
@@ -218,9 +238,9 @@ const DetailLayout = () => {
           )}
 
           {selectedImage && (
-            <img 
-              src={selectedImage} 
-              alt="Full screen view" 
+            <img
+              src={selectedImage}
+              alt="Full screen view"
               className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl animate-in fade-in zoom-in-95 duration-300"
             />
           )}

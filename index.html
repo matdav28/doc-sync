@@ -1,30 +1,105 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="matteo-migliore" />
-<link rel="manifest" href="/site.webmanifest" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matteo Migliore - Sistema di Informazione | Attività Politica e Progetti</title>
-    <meta name="description" content="Sito ufficiale di Matteo Migliore. Attività politica, sociale e progetti futuri. Un sistema di informazione per i cittadini di Pozzallo e non solo." />
-    <meta name="author" content="Matteo Migliore" />
 
-    <meta property="og:title" content="Matteo Migliore - Sistema di Informazione" />
-    <meta property="og:description" content="Attività politica, sociale e progetti futuri. Un sistema di informazione per i cittadini di Pozzallo." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Matteo Migliore" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@matteomigliore" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+  <!-- SEO: Title ottimizzato (55 caratteri) -->
+  <title>Matteo Migliore | Politica e Progetti – Pozzallo</title>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- SEO: Meta description -->
+  <meta name="description"
+    content="Sito ufficiale di Matteo Migliore. Attività politica, progetti sociali e impegno civico per i cittadini di Pozzallo e la Sicilia." />
+  <meta name="author" content="Matteo Migliore" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- SEO: Canonical -->
+  <link rel="canonical" href="https://matteomigliore.it/" />
+
+  <!-- SEO: Preconnect per performance -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Matteo Migliore | Politica e Progetti – Pozzallo" />
+  <meta property="og:description"
+    content="Sito ufficiale di Matteo Migliore. Attività politica, progetti sociali e impegno civico per i cittadini di Pozzallo e la Sicilia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://matteomigliore.it/" />
+  <meta property="og:image" content="https://matteomigliore.it/logo-matteo.png" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content="Matteo Migliore" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matteo Migliore | Politica e Progetti – Pozzallo" />
+  <meta name="twitter:description"
+    content="Sito ufficiale di Matteo Migliore. Attività politica, progetti sociali e impegno civico per Pozzallo e la Sicilia." />
+  <meta name="twitter:image" content="https://matteomigliore.it/logo-matteo.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JNT66PT1ZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JNT66PT1ZP');
+  </script>
+
+  <!-- Schema.org JSON-LD: Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Matteo Migliore",
+      "url": "https://matteomigliore.it",
+      "image": "https://matteomigliore.it/logo-matteo.png",
+      "description": "Attivista politico, impegnato nel sociale e nella rappresentanza giovanile a Pozzallo e in Sicilia.",
+      "jobTitle": "Tesoriere e Delegato al Tesseramento GD Sicilia",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Giovani Democratici Sicilia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pozzallo",
+        "addressRegion": "Sicilia",
+        "addressCountry": "IT"
+      },
+      "sameAs": [
+        "https://www.facebook.com/matteo.migliore"
+      ]
+    }
+    </script>
+
+  <!-- Schema.org JSON-LD: WebSite -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Matteo Migliore",
+      "url": "https://matteomigliore.it",
+      "description": "Sito ufficiale di Matteo Migliore – attività politica, progetti sociali e impegno civico.",
+      "inLanguage": "it",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://matteomigliore.it/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
