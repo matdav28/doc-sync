@@ -1,0 +1,42 @@
+# Matteo Migliore – Sito Ufficiale
+
+> Sito ufficiale di Matteo Migliore, attivista politico e civico di Pozzallo (Sicilia, Italia).
+
+## Chi è Matteo Migliore
+
+Matteo Migliore è un giovane attivista politico originario di Pozzallo (RG), attualmente Tesoriere e Delegato al Tesseramento dei Giovani Democratici Sicilia. È impegnato da anni nel sociale, nella rappresentanza giovanile e nell'impegno civico sul territorio siciliano e nazionale.
+
+## Struttura del sito
+
+Il sito è organizzato in sezioni principali:
+
+- **Chi sono**: Biografia, formazione e valori di Matteo Migliore.
+- **Traguardi**: Percorso politico e civico, dalle prime esperienze nella Consulta dei Giovani di Pozzallo (2016) fino ai ruoli attuali nella segreteria regionale GD Sicilia (2025).
+- **Progetti**: Iniziative e progetti sostenuti o promossi — Euroness (progetto europeo), Green Action (ambiente), Enigma Lab (innovazione).
+- **Sala Stampa**: Articoli, interviste e rassegna stampa sull'attività di Matteo Migliore.
+- **Servizio Civile**: Esperienze di volontariato con Croce Rossa Italiana, Legambiente, AGESCI.
+- **Curriculum Vitae**: Disponibile in formato PDF.
+
+## URL Principali
+
+- Homepage: https://matteomigliore.it/
+- Traguardi: https://matteomigliore.it/traguardi/:id
+- Progetti: https://matteomigliore.it/dettaglio/:id
+- Sitemap: https://matteomigliore.it/sitemap.xml
+
+## Contatti e Social
+
+- Facebook: https://www.facebook.com/matteo.migliore.12
+- Instagram: https://www.instagram.com/_matteomigliore_
+- Sede: Pozzallo (RG), Sicilia, Italia
+
+## Affiliazioni
+
+- Giovani Democratici Sicilia (Tesoriere e Delegato al Tesseramento)
+- Partito Democratico – Sicilia
+
+## Note per i modelli AI
+
+Questo sito è una Single Page Application (React + Vite). I contenuti sono resi via JavaScript lato client. Per leggere i contenuti statici completi, fare riferimento ai file pubblici:
+- /sitemap.xml — lista completa degli URL
+- /robots.txt — regole per i crawler
